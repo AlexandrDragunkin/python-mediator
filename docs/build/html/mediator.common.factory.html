@@ -1,0 +1,2522 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mediator.common.factory package &#8212; mediator 0.7.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="_static/styles/bootstrap.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94">
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'mediator.common.factory';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="en">
+  </head>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
+  <label class="overlay overlay-primary" for="__primary"></label>
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+      
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+  </div>
+
+  
+  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+      <span class="fa-solid fa-bars"></span>
+  </label>
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="index.html">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <p class="title logo__title">mediator 0.7.0 documentation</p>
+  
+</a>
+    
+  </div>
+
+  
+  <div class="col-lg-9 navbar-header-items">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+    </ul>
+</nav>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+        <div class="navbar-end-item navbar-persistent--container">
+          
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+        </div>
+      
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+
+
+  
+  
+    <div class="navbar-persistent--mobile">
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+    </div>
+  
+
+  
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+  </label>
+  
+
+</div>
+  </nav>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+    </ul>
+</nav>
+      </div>
+      
+      </div>
+    
+
+    
+    
+    <div class="sidebar-header-items__end">
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  
+  <div class="sidebar-start-items sidebar-primary__section">
+    <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Section navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">
+    Section Navigation
+  </p>
+  <div class="bd-toc-item navbar-nav">
+    <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="mediator.common.html">mediator.common package</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">mediator.common.factory package</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="mediator.common.factory.test.html">mediator.common.factory.test package</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="mediator.common.handler.html">mediator.common.handler package</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="mediator.common.handler.test.html">mediator.common.handler.test package</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="mediator.common.registry.html">mediator.common.registry package</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="mediator.common.registry.test.html">mediator.common.registry.test package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mediator.common.test.html">mediator.common.test package</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="mediator.event.html">mediator.event package</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="mediator.event.test.html">mediator.event.test package</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="mediator.request.html">mediator.request package</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="mediator.request.test.html">mediator.request.test package</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="mediator.utils.html">mediator.utils package</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="mediator.utils.test.html">mediator.utils.test package</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+</nav>
+    </div>
+  </div>
+  
+
+  
+  <div class="sidebar-end-items sidebar-primary__section">
+    <div class="sidebar-end-items__item">
+    </div>
+  </div>
+
+  
+  <div id="rtd-footer-container"></div>
+
+      </div>
+      <main id="main-content" class="bd-main">
+        
+        
+        <div class="bd-content">
+          <div class="bd-article-container">
+            
+            <div class="bd-header-article">
+                
+            </div>
+            
+            
+            <article class="bd-article" role="main">
+              
+  <div class="section" id="mediator-common-factory-package">
+<h1>mediator.common.factory package<a class="headerlink" href="#mediator-common-factory-package" title="Permalink to this heading">#</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mediator.common.factory.test.html">mediator.common.factory.test package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mediator.common.factory.test.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mediator.common.factory.test.html#module-mediator.common.factory.test.test_cascade">mediator.common.factory.test.test_cascade module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mediator.common.factory.test.html#mediator.common.factory.test.test_cascade.test_handler_factory_cascade_error"><code class="docutils literal notranslate"><span class="pre">test_handler_factory_cascade_error()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mediator.common.factory.test.html#mediator.common.factory.test.test_cascade.test_handler_factory_cascade_replace"><code class="docutils literal notranslate"><span class="pre">test_handler_factory_cascade_replace()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mediator.common.factory.test.html#mediator.common.factory.test.test_cascade.test_handler_factory_cascade_success"><code class="docutils literal notranslate"><span class="pre">test_handler_factory_cascade_success()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mediator.common.factory.test.html#module-mediator.common.factory.test.test_factories">mediator.common.factory.test.test_factories module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mediator.common.factory.test.html#mediator.common.factory.test.test_factories.test_callable_handler_factory"><code class="docutils literal notranslate"><span class="pre">test_callable_handler_factory()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mediator.common.factory.test.html#mediator.common.factory.test.test_factories.test_method_handler_factory"><code class="docutils literal notranslate"><span class="pre">test_method_handler_factory()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mediator.common.factory.test.html#module-mediator.common.factory.test.test_mappers">mediator.common.factory.test.test_mappers module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mediator.common.factory.test.html#mediator.common.factory.test.test_mappers.test_default_handler_factory_mapper"><code class="docutils literal notranslate"><span class="pre">test_default_handler_factory_mapper()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mediator.common.factory.test.html#mediator.common.factory.test.test_mappers.test_type_handler_factory_mapper_error"><code class="docutils literal notranslate"><span class="pre">test_type_handler_factory_mapper_error()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mediator.common.factory.test.html#module-mediator.common.factory.test.test_policies">mediator.common.factory.test.test_policies module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mediator.common.factory.test.html#mediator.common.factory.test.test_policies.test_base_handler_policy"><code class="docutils literal notranslate"><span class="pre">test_base_handler_policy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mediator.common.factory.test.html#mediator.common.factory.test.test_policies.test_callable_handler_policy"><code class="docutils literal notranslate"><span class="pre">test_callable_handler_policy()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mediator.common.factory.test.html#mediator.common.factory.test.test_policies.test_method_handler_policy"><code class="docutils literal notranslate"><span class="pre">test_method_handler_policy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mediator.common.factory.test.html#module-mediator.common.factory.test.test_utils">mediator.common.factory.test.test_utils module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mediator.common.factory.test.html#mediator.common.factory.test.test_utils.test_callable_attribute_details"><code class="docutils literal notranslate"><span class="pre">test_callable_attribute_details()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mediator.common.factory.test.html#mediator.common.factory.test.test_utils.test_callable_obj_details"><code class="docutils literal notranslate"><span class="pre">test_callable_obj_details()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mediator.common.factory.test.html#mediator.common.factory.test.test_utils.test_direct_handler_create_fail"><code class="docutils literal notranslate"><span class="pre">test_direct_handler_create_fail()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mediator.common.factory.test.html#mediator.common.factory.test.test_utils.test_direct_handler_create_successful"><code class="docutils literal notranslate"><span class="pre">test_direct_handler_create_successful()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mediator.common.factory.test.html#mediator.common.factory.test.test_utils.test_subject_arg_get"><code class="docutils literal notranslate"><span class="pre">test_subject_arg_get()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mediator.common.factory.test.html#module-mediator.common.factory.test">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">#</a></h2>
+</div>
+<div class="section" id="module-mediator.common.factory.base">
+<span id="mediator-common-factory-base-module"></span><h2>mediator.common.factory.base module<a class="headerlink" href="#module-mediator.common.factory.base" title="Permalink to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="mediator.common.factory.base.HandlerFactory">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.common.factory.base.</span></span><span class="sig-name descname"><span class="pre">HandlerFactory</span></span><a class="reference internal" href="_modules/mediator/common/factory/base.html#HandlerFactory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.base.HandlerFactory" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Handler factory is an abstraction over action handler creation
+form underlying object.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.common.factory.base.HandlerFactory.create">
+<span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/common/factory/base.html#HandlerFactory.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.base.HandlerFactory.create" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>obj</strong> (<em>Any</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="mediator.common.handler.html#mediator.common.handler.base.Handler" title="mediator.common.handler.base.Handler"><em>Handler</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="mediator.common.factory.base.HandlerFactoryError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.common.factory.base.</span></span><span class="sig-name descname"><span class="pre">HandlerFactoryError</span></span><a class="reference internal" href="_modules/mediator/common/factory/base.html#HandlerFactoryError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.base.HandlerFactoryError" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Handler factory error base class.</p>
+<p>All sub error classes related to handler factory inherits form it.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mediator.common.factory.base.HandlerFactoryMapper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.common.factory.base.</span></span><span class="sig-name descname"><span class="pre">HandlerFactoryMapper</span></span><a class="reference internal" href="_modules/mediator/common/factory/base.html#HandlerFactoryMapper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.base.HandlerFactoryMapper" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Handler factory mapper abstraction.
+Maps policy (specification) into handler factory object.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.common.factory.base.HandlerFactoryMapper.map">
+<span class="sig-name descname"><span class="pre">map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">policy</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/common/factory/base.html#HandlerFactoryMapper.map"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.base.HandlerFactoryMapper.map" title="Permalink to this definition">#</a></dt>
+<dd><p>Maps given policy (specification) into handler factory
+:param policy: given policy (specification)
+:return: handler factory object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>policy</strong> (<em>Any</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#mediator.common.factory.base.HandlerFactory" title="mediator.common.factory.base.HandlerFactory"><em>HandlerFactory</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.common.factory.base.HandlerFactoryMapper.map_all">
+<span class="sig-name descname"><span class="pre">map_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">policies</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/common/factory/base.html#HandlerFactoryMapper.map_all"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.base.HandlerFactoryMapper.map_all" title="Permalink to this definition">#</a></dt>
+<dd><p>Maps all policies (specifications) into handler factory object
+:param policies: iterable providing sequence of policies (specifications)
+:return: sequence of handler factory objects</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>policies</strong> (<em>Iterable</em><em>[</em><em>Any</em><em>]</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><em>Sequence</em>[<a class="reference internal" href="#mediator.common.factory.base.HandlerFactory" title="mediator.common.factory.base.HandlerFactory"><em>HandlerFactory</em></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="mediator.common.factory.base.IncompatibleHandlerFactoryError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.common.factory.base.</span></span><span class="sig-name descname"><span class="pre">IncompatibleHandlerFactoryError</span></span><a class="reference internal" href="_modules/mediator/common/factory/base.html#IncompatibleHandlerFactoryError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.base.IncompatibleHandlerFactoryError" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TypeError</span></code>, <a class="reference internal" href="#mediator.common.factory.base.HandlerFactoryError" title="mediator.common.factory.base.HandlerFactoryError"><code class="xref py py-class docutils literal notranslate"><span class="pre">HandlerFactoryError</span></code></a></p>
+<p>Incompatible handler factory error.</p>
+<p>Error is raised when given handler factory input cannot be processed
+due to its incompatibility to the factory specification.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-mediator.common.factory.cascade">
+<span id="mediator-common-factory-cascade-module"></span><h2>mediator.common.factory.cascade module<a class="headerlink" href="#module-mediator.common.factory.cascade" title="Permalink to this heading">#</a></h2>
+<dl class="py exception">
+<dt class="sig sig-object py" id="mediator.common.factory.cascade.ConfigHandlerFactoryCascadeError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.common.factory.cascade.</span></span><span class="sig-name descname"><span class="pre">ConfigHandlerFactoryCascadeError</span></span><a class="reference internal" href="_modules/mediator/common/factory/cascade.html#ConfigHandlerFactoryCascadeError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.cascade.ConfigHandlerFactoryCascadeError" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ValueError</span></code>, <a class="reference internal" href="#mediator.common.factory.cascade.HandlerFactoryCascadeError" title="mediator.common.factory.cascade.HandlerFactoryCascadeError"><code class="xref py py-class docutils literal notranslate"><span class="pre">HandlerFactoryCascadeError</span></code></a></p>
+<p>Handler factory cascade configuration error.</p>
+<p>Raised when handler factory cascade is not properly configured.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mediator.common.factory.cascade.HandlerFactoryCascade">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.common.factory.cascade.</span></span><span class="sig-name descname"><span class="pre">HandlerFactoryCascade</span></span><a class="reference internal" href="_modules/mediator/common/factory/cascade.html#HandlerFactoryCascade"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.cascade.HandlerFactoryCascade" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Handler factory cascade.</p>
+<p>This cascade is responsible for trying to map given object into handler
+using handler factory sequence.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.common.factory.cascade.HandlerFactoryCascade.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">policies</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mapper</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/common/factory/cascade.html#HandlerFactoryCascade.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.cascade.HandlerFactoryCascade.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Initializes handler factory cascade.
+:param policies: iterable providing sequence of policies
+to map into handler factories
+:param mapper: (optional)handler factory mapper
+that maps policies into corresponding handler factories;
+when not provided <cite>DefaultHandlerFactoryMapper</cite> is used
+:raises ConfigHandlerFactoryCascadeError: when no polices are provided</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>policies</strong> (<em>Iterable</em><em>[</em><em>Union</em><em>[</em><a class="reference internal" href="#mediator.common.factory.policies.CallableHandlerPolicy" title="mediator.common.factory.policies.CallableHandlerPolicy"><em>CallableHandlerPolicy</em></a><em>, </em><a class="reference internal" href="#mediator.common.factory.policies.MethodHandlerPolicy" title="mediator.common.factory.policies.MethodHandlerPolicy"><em>MethodHandlerPolicy</em></a><em>, </em><a class="reference internal" href="#mediator.common.factory.policies.MappablePolicy" title="mediator.common.factory.policies.MappablePolicy"><em>MappablePolicy</em></a><em>]</em><em>]</em>) – </p></li>
+<li><p><strong>mapper</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="#mediator.common.factory.base.HandlerFactoryMapper" title="mediator.common.factory.base.HandlerFactoryMapper"><em>HandlerFactoryMapper</em></a><em>]</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.common.factory.cascade.HandlerFactoryCascade.replace">
+<span class="sig-name descname"><span class="pre">replace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">policies</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/common/factory/cascade.html#HandlerFactoryCascade.replace"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.cascade.HandlerFactoryCascade.replace" title="Permalink to this definition">#</a></dt>
+<dd><p>Creates new handler factory cascade that has replaced policy sequence,
+but uses the same policy to handler factory mapper.
+:param policies: iterable providing new sequence of policies (specifications)
+:return: new handler policy cascade initialized using new set of policies
+and same handler factory mapper</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>policies</strong> (<em>Iterable</em><em>[</em><em>Union</em><em>[</em><a class="reference internal" href="#mediator.common.factory.policies.CallableHandlerPolicy" title="mediator.common.factory.policies.CallableHandlerPolicy"><em>CallableHandlerPolicy</em></a><em>, </em><a class="reference internal" href="#mediator.common.factory.policies.MethodHandlerPolicy" title="mediator.common.factory.policies.MethodHandlerPolicy"><em>MethodHandlerPolicy</em></a><em>, </em><a class="reference internal" href="#mediator.common.factory.policies.MappablePolicy" title="mediator.common.factory.policies.MappablePolicy"><em>MappablePolicy</em></a><em>]</em><em>]</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#mediator.common.factory.cascade.HandlerFactoryCascade" title="mediator.common.factory.cascade.HandlerFactoryCascade"><em>HandlerFactoryCascade</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="mediator.common.factory.cascade.HandlerFactoryCascadeError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.common.factory.cascade.</span></span><span class="sig-name descname"><span class="pre">HandlerFactoryCascadeError</span></span><a class="reference internal" href="_modules/mediator/common/factory/cascade.html#HandlerFactoryCascadeError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.cascade.HandlerFactoryCascadeError" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Handler factory cascade base error.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="mediator.common.factory.cascade.IncompatibleHandlerFactoryCascadeError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.common.factory.cascade.</span></span><span class="sig-name descname"><span class="pre">IncompatibleHandlerFactoryCascadeError</span></span><a class="reference internal" href="_modules/mediator/common/factory/cascade.html#IncompatibleHandlerFactoryCascadeError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.cascade.IncompatibleHandlerFactoryCascadeError" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mediator.common.factory.cascade.HandlerFactoryCascadeError" title="mediator.common.factory.cascade.HandlerFactoryCascadeError"><code class="xref py py-class docutils literal notranslate"><span class="pre">HandlerFactoryCascadeError</span></code></a></p>
+<p>Incompatible handler factory cascade error.</p>
+<p>Raised when handler factory cascade cannot convert given object into handler,
+which means <cite>given object is incompatible and cannot be mapped</cite>.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.common.factory.cascade.IncompatibleHandlerFactoryCascadeError.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factory_errors</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/common/factory/cascade.html#IncompatibleHandlerFactoryCascadeError.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.cascade.IncompatibleHandlerFactoryCascadeError.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Initializes incompatible handler factory cascade error.
+:param args: python exception args
+:param factory_errors: sequence of
+(&lt;handler factory object&gt;, &lt;given handler factory error&gt;) pairs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>factory_errors</strong> (<em>Sequence</em><em>[</em><em>Tuple</em><em>[</em><a class="reference internal" href="#mediator.common.factory.base.HandlerFactory" title="mediator.common.factory.base.HandlerFactory"><em>HandlerFactory</em></a><em>, </em><a class="reference internal" href="#mediator.common.factory.base.IncompatibleHandlerFactoryError" title="mediator.common.factory.base.IncompatibleHandlerFactoryError"><em>IncompatibleHandlerFactoryError</em></a><em>]</em><em>]</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="mediator.common.factory.cascade.InspectionHandlerFactoryCascadeError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.common.factory.cascade.</span></span><span class="sig-name descname"><span class="pre">InspectionHandlerFactoryCascadeError</span></span><a class="reference internal" href="_modules/mediator/common/factory/cascade.html#InspectionHandlerFactoryCascadeError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.cascade.InspectionHandlerFactoryCascadeError" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mediator.common.factory.cascade.HandlerFactoryCascadeError" title="mediator.common.factory.cascade.HandlerFactoryCascadeError"><code class="xref py py-class docutils literal notranslate"><span class="pre">HandlerFactoryCascadeError</span></code></a></p>
+<p>Handler factory cascade inspection error.</p>
+<p>Raised when one of handler factory in cascade
+raises inspection machinery failure (non usual situation) error.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.common.factory.cascade.InspectionHandlerFactoryCascadeError.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factory</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/common/factory/cascade.html#InspectionHandlerFactoryCascadeError.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.cascade.InspectionHandlerFactoryCascadeError.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Initializes inspection handler factory cascade error.
+:param args: python exception args
+:param factory: handler factory that raised inspection error</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>factory</strong> (<a class="reference internal" href="#mediator.common.factory.base.HandlerFactory" title="mediator.common.factory.base.HandlerFactory"><em>HandlerFactory</em></a>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-mediator.common.factory.factories">
+<span id="mediator-common-factory-factories-module"></span><h2>mediator.common.factory.factories module<a class="headerlink" href="#module-mediator.common.factory.factories" title="Permalink to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="mediator.common.factory.factories.CallableHandlerFactory">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.common.factory.factories.</span></span><span class="sig-name descname"><span class="pre">CallableHandlerFactory</span></span><a class="reference internal" href="_modules/mediator/common/factory/factories.html#CallableHandlerFactory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.factories.CallableHandlerFactory" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mediator.common.factory.base.HandlerFactory" title="mediator.common.factory.base.HandlerFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">HandlerFactory</span></code></a></p>
+<p>Callable handler factory.</p>
+<p>Factory that produces callable handler directly from callable object.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.common.factory.factories.CallableHandlerFactory.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">policy</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/common/factory/factories.html#CallableHandlerFactory.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.factories.CallableHandlerFactory.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Initializes callable handler factory.
+:param policy: policy used as a configuration or specification
+for producing handler object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>policy</strong> (<a class="reference internal" href="#mediator.common.factory.policies.CallableHandlerPolicy" title="mediator.common.factory.policies.CallableHandlerPolicy"><em>CallableHandlerPolicy</em></a>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.common.factory.factories.CallableHandlerFactory.create">
+<span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/common/factory/factories.html#CallableHandlerFactory.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.factories.CallableHandlerFactory.create" title="Permalink to this definition">#</a></dt>
+<dd><p>Creates handler directly form callable object.
+:param obj: callable object
+:raises IncompatibleHandlerFactoryError: when callable object is incompatible
+with factory specification
+:raises HandlerFactoryError: when there is failure during object inspection
+:return: handler invoking given callable object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>obj</strong> (<em>Any</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="mediator.common.handler.html#mediator.common.handler.base.Handler" title="mediator.common.handler.base.Handler"><em>Handler</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mediator.common.factory.factories.MethodHandlerFactory">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.common.factory.factories.</span></span><span class="sig-name descname"><span class="pre">MethodHandlerFactory</span></span><a class="reference internal" href="_modules/mediator/common/factory/factories.html#MethodHandlerFactory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.factories.MethodHandlerFactory" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mediator.common.factory.base.HandlerFactory" title="mediator.common.factory.base.HandlerFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">HandlerFactory</span></code></a></p>
+<p>Method handler factory.</p>
+<p>Factory that produces callable handler from given object attribute
+- in most cases method.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.common.factory.factories.MethodHandlerFactory.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">policy</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/common/factory/factories.html#MethodHandlerFactory.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.factories.MethodHandlerFactory.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Initializes method handler factory.
+:param policy: policy used as a configuration or specification
+for producing handler object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>policy</strong> (<a class="reference internal" href="#mediator.common.factory.policies.MethodHandlerPolicy" title="mediator.common.factory.policies.MethodHandlerPolicy"><em>MethodHandlerPolicy</em></a>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.common.factory.factories.MethodHandlerFactory.create">
+<span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/common/factory/factories.html#MethodHandlerFactory.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.factories.MethodHandlerFactory.create" title="Permalink to this definition">#</a></dt>
+<dd><p>Creates handler from given object attribute according to specification.
+:param obj: callable object
+:raises IncompatibleHandlerFactoryError: when callable object is incompatible
+with factory specification
+:raises HandlerFactoryError: when there is failure during object inspection
+:return: handler invoking given object callable attribute</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>obj</strong> (<em>Any</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="mediator.common.handler.html#mediator.common.handler.base.Handler" title="mediator.common.handler.base.Handler"><em>Handler</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-mediator.common.factory.mappers">
+<span id="mediator-common-factory-mappers-module"></span><h2>mediator.common.factory.mappers module<a class="headerlink" href="#module-mediator.common.factory.mappers" title="Permalink to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="mediator.common.factory.mappers.DefaultHandlerFactoryMapper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.common.factory.mappers.</span></span><span class="sig-name descname"><span class="pre">DefaultHandlerFactoryMapper</span></span><a class="reference internal" href="_modules/mediator/common/factory/mappers.html#DefaultHandlerFactoryMapper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.mappers.DefaultHandlerFactoryMapper" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mediator.common.factory.mappers.TypeHandlerFactoryMapper" title="mediator.common.factory.mappers.TypeHandlerFactoryMapper"><code class="xref py py-class docutils literal notranslate"><span class="pre">TypeHandlerFactoryMapper</span></code></a></p>
+<p>Library default handler factory mapper.</p>
+<p>Maps <cite>CallableHandlerPolicy</cite> objects and <cite>MethodHandlerPolicy</cite> objects
+into handler factories.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.common.factory.mappers.DefaultHandlerFactoryMapper.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">extra_mapping</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/common/factory/mappers.html#DefaultHandlerFactoryMapper.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.mappers.DefaultHandlerFactoryMapper.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Initializes library default handler factory mapper.
+:param extra_mapping:
+extra policy mapping (policy type -&gt; handler factory provider);
+may be used to extend or override default handler factory mapping</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>extra_mapping</strong> (<em>Optional</em><em>[</em><em>Mapping</em><em>[</em><em>Type</em><em>[</em><em>Any</em><em>]</em><em>, </em><em>Callable</em><em>[</em><em>[</em><em>Any</em><em>]</em><em>, </em><a class="reference internal" href="#mediator.common.factory.base.HandlerFactory" title="mediator.common.factory.base.HandlerFactory"><em>HandlerFactory</em></a><em>]</em><em>]</em><em>]</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.common.factory.mappers.DefaultHandlerFactoryMapper.default_mapping">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">default_mapping</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/common/factory/mappers.html#DefaultHandlerFactoryMapper.default_mapping"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.mappers.DefaultHandlerFactoryMapper.default_mapping" title="Permalink to this definition">#</a></dt>
+<dd><p>Provides library default policy type to handler factory provider mapping.
+:return: default policy type to handler factory provider mapping</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><em>Dict</em>[<em>Type</em>[<em>Any</em>], <em>Type</em>[<a class="reference internal" href="#mediator.common.factory.base.HandlerFactory" title="mediator.common.factory.base.HandlerFactory"><em>HandlerFactory</em></a>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mediator.common.factory.mappers.TypeHandlerFactoryMapper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.common.factory.mappers.</span></span><span class="sig-name descname"><span class="pre">TypeHandlerFactoryMapper</span></span><a class="reference internal" href="_modules/mediator/common/factory/mappers.html#TypeHandlerFactoryMapper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.mappers.TypeHandlerFactoryMapper" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mediator.common.factory.base.HandlerFactoryMapper" title="mediator.common.factory.base.HandlerFactoryMapper"><code class="xref py py-class docutils literal notranslate"><span class="pre">HandlerFactoryMapper</span></code></a></p>
+<p>Type handler factory mapper.</p>
+<p>Mapper that maps given policy into handler factory object
+using policy type to handler factory provider mapping.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.common.factory.mappers.TypeHandlerFactoryMapper.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mapping</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/common/factory/mappers.html#TypeHandlerFactoryMapper.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.mappers.TypeHandlerFactoryMapper.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Initializes type handler factory mapper.
+:param mapping: policy type to handler factory provider mapping</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mapping</strong> (<em>Mapping</em><em>[</em><em>Type</em><em>[</em><em>Any</em><em>]</em><em>, </em><em>Callable</em><em>[</em><em>[</em><em>Any</em><em>]</em><em>, </em><a class="reference internal" href="#mediator.common.factory.base.HandlerFactory" title="mediator.common.factory.base.HandlerFactory"><em>HandlerFactory</em></a><em>]</em><em>]</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.common.factory.mappers.TypeHandlerFactoryMapper.map">
+<span class="sig-name descname"><span class="pre">map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">policy</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/common/factory/mappers.html#TypeHandlerFactoryMapper.map"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.mappers.TypeHandlerFactoryMapper.map" title="Permalink to this definition">#</a></dt>
+<dd><p>Provides handler factory object according to given policy (specification).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>policy</strong> (<em>Any</em>) – policy to map into handler factory</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>TypeError</strong> – when given type policy is not supported</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>handler factory object</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#mediator.common.factory.base.HandlerFactory" title="mediator.common.factory.base.HandlerFactory"><em>HandlerFactory</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-mediator.common.factory.policies">
+<span id="mediator-common-factory-policies-module"></span><h2>mediator.common.factory.policies module<a class="headerlink" href="#module-mediator.common.factory.policies" title="Permalink to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="mediator.common.factory.policies.CallableHandlerPolicy">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.common.factory.policies.</span></span><span class="sig-name descname"><span class="pre">CallableHandlerPolicy</span></span><a class="reference internal" href="_modules/mediator/common/factory/policies.html#CallableHandlerPolicy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.policies.CallableHandlerPolicy" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mediator.common.factory.policies.MappablePolicy" title="mediator.common.factory.policies.MappablePolicy"><code class="xref py py-class docutils literal notranslate"><span class="pre">MappablePolicy</span></code></a></p>
+<p>Callable handler policy.</p>
+<p>Specification or recipe how to inspect callable object
+and how should be built handler that invokes it.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.common.factory.policies.CallableHandlerPolicy.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subject_arg=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg_map=&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg_strict=False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mediator.common.factory.policies.CallableHandlerPolicy.__init__" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>subject_arg</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
+<li><p><strong>arg_map</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>str</em><em>]</em>) – </p></li>
+<li><p><strong>arg_strict</strong> (<em>bool</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mediator.common.factory.policies.CallableHandlerPolicy.arg_map">
+<span class="sig-name descname"><span class="pre">arg_map</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#mediator.common.factory.policies.CallableHandlerPolicy.arg_map" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mediator.common.factory.policies.CallableHandlerPolicy.arg_strict">
+<span class="sig-name descname"><span class="pre">arg_strict</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#mediator.common.factory.policies.CallableHandlerPolicy.arg_strict" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.common.factory.policies.CallableHandlerPolicy.replace_map">
+<span class="sig-name descname"><span class="pre">replace_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">policy</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/common/factory/policies.html#CallableHandlerPolicy.replace_map"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.policies.CallableHandlerPolicy.replace_map" title="Permalink to this definition">#</a></dt>
+<dd><p>Maps this policy into new one, patching internals by given policy.
+:param policy: policy to patch internals
+:return: new policy that is current one with replaced values form given one</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>policy</strong> (<a class="reference internal" href="#mediator.common.factory.policies.MappablePolicy" title="mediator.common.factory.policies.MappablePolicy"><em>MappablePolicy</em></a>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#mediator.common.factory.policies.CallableHandlerPolicy" title="mediator.common.factory.policies.CallableHandlerPolicy"><em>CallableHandlerPolicy</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mediator.common.factory.policies.CallableHandlerPolicy.subject_arg">
+<span class="sig-name descname"><span class="pre">subject_arg</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#mediator.common.factory.policies.CallableHandlerPolicy.subject_arg" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="mediator.common.factory.policies.CallableHandlerPolicy.subject_as_keyword">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">subject_as_keyword</span></span><a class="headerlink" href="#mediator.common.factory.policies.CallableHandlerPolicy.subject_as_keyword" title="Permalink to this definition">#</a></dt>
+<dd><p>Should primary argument provided as a keyword arg.
+:return: True when according to policy primary argument
+will be always provided as keyword arg, False otherwise</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mediator.common.factory.policies.MappablePolicy">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.common.factory.policies.</span></span><span class="sig-name descname"><span class="pre">MappablePolicy</span></span><a class="reference internal" href="_modules/mediator/common/factory/policies.html#MappablePolicy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.policies.MappablePolicy" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Base class for policy - handler factory input specification.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.common.factory.policies.MappablePolicy.replace_map">
+<span class="sig-name descname"><span class="pre">replace_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">policy</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/common/factory/policies.html#MappablePolicy.replace_map"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.policies.MappablePolicy.replace_map" title="Permalink to this definition">#</a></dt>
+<dd><p>Maps this policy into new one, patching internals by given policy.
+:param policy: policy to patch internals
+:return: new policy that is current one with replaced values form given one</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>policy</strong> (<a class="reference internal" href="#mediator.common.factory.policies.MappablePolicy" title="mediator.common.factory.policies.MappablePolicy"><em>MappablePolicy</em></a>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#mediator.common.factory.policies.MappablePolicy" title="mediator.common.factory.policies.MappablePolicy"><em>MappablePolicy</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mediator.common.factory.policies.MethodHandlerPolicy">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.common.factory.policies.</span></span><span class="sig-name descname"><span class="pre">MethodHandlerPolicy</span></span><a class="reference internal" href="_modules/mediator/common/factory/policies.html#MethodHandlerPolicy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.policies.MethodHandlerPolicy" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mediator.common.factory.policies.MappablePolicy" title="mediator.common.factory.policies.MappablePolicy"><code class="xref py py-class docutils literal notranslate"><span class="pre">MappablePolicy</span></code></a></p>
+<p>Method handler policy.</p>
+<p>Specification or recipe how to inspect object method
+and how should be built handler that invokes it.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.common.factory.policies.MethodHandlerPolicy.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">policy=&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subtype_of=&lt;factory&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mediator.common.factory.policies.MethodHandlerPolicy.__init__" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – </p></li>
+<li><p><strong>policy</strong> (<a class="reference internal" href="#mediator.common.factory.policies.CallableHandlerPolicy" title="mediator.common.factory.policies.CallableHandlerPolicy"><em>CallableHandlerPolicy</em></a>) – </p></li>
+<li><p><strong>subtype_of</strong> (<em>List</em><em>[</em><em>Type</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mediator.common.factory.policies.MethodHandlerPolicy.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#mediator.common.factory.policies.MethodHandlerPolicy.name" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mediator.common.factory.policies.MethodHandlerPolicy.policy">
+<span class="sig-name descname"><span class="pre">policy</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#mediator.common.factory.policies.CallableHandlerPolicy" title="mediator.common.factory.policies.CallableHandlerPolicy"><span class="pre">CallableHandlerPolicy</span></a></em><a class="headerlink" href="#mediator.common.factory.policies.MethodHandlerPolicy.policy" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="mediator.common.factory.policies.MethodHandlerPolicy.precises_type">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">precises_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#mediator.common.factory.policies.MethodHandlerPolicy.precises_type" title="Permalink to this definition">#</a></dt>
+<dd><p>Is object type checking performed.
+:return: True when corresponding handler factory checks object type,
+False when no object type check is performed</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.common.factory.policies.MethodHandlerPolicy.replace_map">
+<span class="sig-name descname"><span class="pre">replace_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">policy</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/common/factory/policies.html#MethodHandlerPolicy.replace_map"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.policies.MethodHandlerPolicy.replace_map" title="Permalink to this definition">#</a></dt>
+<dd><p>Maps this policy into new one, patching internals by given policy.
+:param policy: policy to patch internals
+:return: new policy that is current one with replaced values form given one</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>policy</strong> (<a class="reference internal" href="#mediator.common.factory.policies.MappablePolicy" title="mediator.common.factory.policies.MappablePolicy"><em>MappablePolicy</em></a>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#mediator.common.factory.policies.MethodHandlerPolicy" title="mediator.common.factory.policies.MethodHandlerPolicy"><em>MethodHandlerPolicy</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mediator.common.factory.policies.MethodHandlerPolicy.subtype_of">
+<span class="sig-name descname"><span class="pre">subtype_of</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Type</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#mediator.common.factory.policies.MethodHandlerPolicy.subtype_of" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-mediator.common.factory.utils">
+<span id="mediator-common-factory-utils-module"></span><h2>mediator.common.factory.utils module<a class="headerlink" href="#module-mediator.common.factory.utils" title="Permalink to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="mediator.common.factory.utils.CallableAttributeDetails">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.common.factory.utils.</span></span><span class="sig-name descname"><span class="pre">CallableAttributeDetails</span></span><a class="reference internal" href="_modules/mediator/common/factory/utils.html#CallableAttributeDetails"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.utils.CallableAttributeDetails" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Utility that (optionally) checks if object has valid type
+and performs callable inspection for given object attribute.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.common.factory.utils.CallableAttributeDetails.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">owner_subtype_of</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/common/factory/utils.html#CallableAttributeDetails.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.utils.CallableAttributeDetails.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Initializes callable attribute inspection object,
+that (optionally) checks if object has valid type
+and performs callable inspection for given object attribute
+:param name: inspection object attribute name
+:param owner_subtype_of: sequence of types to check
+if an instance of an input object is one of them;
+just like <cite>isinstance(obj, owner_subtype_of)</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – </p></li>
+<li><p><strong>owner_subtype_of</strong> (<em>Sequence</em><em>[</em><em>Any</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mediator.common.factory.utils.CallableAttributeDetails.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#mediator.common.factory.utils.CallableAttributeDetails.name" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mediator.common.factory.utils.CallableAttributeDetails.subtype_of">
+<span class="sig-name descname"><span class="pre">subtype_of</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#mediator.common.factory.utils.CallableAttributeDetails.subtype_of" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mediator.common.factory.utils.CallableHandlerCreate">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.common.factory.utils.</span></span><span class="sig-name descname"><span class="pre">CallableHandlerCreate</span></span><a class="reference internal" href="_modules/mediator/common/factory/utils.html#CallableHandlerCreate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.utils.CallableHandlerCreate" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Creates callable handler using given specification.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.common.factory.utils.CallableHandlerCreate.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subject_as_keyword</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg_map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg_strict</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/common/factory/utils.html#CallableHandlerCreate.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.utils.CallableHandlerCreate.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Initializes callable handler factory using given specification.
+:param subject_as_keyword:
+force to provide primary (subject) argument as keyword argument
+:param arg_map: action extra arguments to callable arguments name mapping;
+used for translation to reconcile argument name differences
+:param arg_strict: when True all action arguments will be provided for handler,
+when False only those that fits into handler callable arguments set
+(excessive ones will be dropped)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>subject_as_keyword</strong> (<em>bool</em>) – </p></li>
+<li><p><strong>arg_map</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>str</em><em>]</em>) – </p></li>
+<li><p><strong>arg_strict</strong> (<em>bool</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mediator.common.factory.utils.CallableObjDetails">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.common.factory.utils.</span></span><span class="sig-name descname"><span class="pre">CallableObjDetails</span></span><a class="reference internal" href="_modules/mediator/common/factory/utils.html#CallableObjDetails"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.utils.CallableObjDetails" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Utility that wraps callable object inspection procedure into handler factory world.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mediator.common.factory.utils.HandlerSubjectArgGet">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.common.factory.utils.</span></span><span class="sig-name descname"><span class="pre">HandlerSubjectArgGet</span></span><a class="reference internal" href="_modules/mediator/common/factory/utils.html#HandlerSubjectArgGet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.utils.HandlerSubjectArgGet" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Utility that finds primary argument for given callable object,
+to be filled with action subject (event, request, command etc object).</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.common.factory.utils.HandlerSubjectArgGet.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/common/factory/utils.html#HandlerSubjectArgGet.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.utils.HandlerSubjectArgGet.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Initializes utility that finds primary argument for given callable object.
+:param name: optional argument name hint;
+when provided utility will assume argument with that name as primary</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-mediator.common.factory">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-mediator.common.factory" title="Permalink to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="mediator.common.factory.CallableHandlerFactory">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.common.factory.</span></span><span class="sig-name descname"><span class="pre">CallableHandlerFactory</span></span><a class="reference internal" href="_modules/mediator/common/factory/factories.html#CallableHandlerFactory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.CallableHandlerFactory" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mediator.common.factory.base.HandlerFactory" title="mediator.common.factory.base.HandlerFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">HandlerFactory</span></code></a></p>
+<p>Callable handler factory.</p>
+<p>Factory that produces callable handler directly from callable object.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.common.factory.CallableHandlerFactory.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">policy</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/common/factory/factories.html#CallableHandlerFactory.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.CallableHandlerFactory.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Initializes callable handler factory.
+:param policy: policy used as a configuration or specification
+for producing handler object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>policy</strong> (<a class="reference internal" href="#mediator.common.factory.policies.CallableHandlerPolicy" title="mediator.common.factory.policies.CallableHandlerPolicy"><em>CallableHandlerPolicy</em></a>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.common.factory.CallableHandlerFactory.create">
+<span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/common/factory/factories.html#CallableHandlerFactory.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.CallableHandlerFactory.create" title="Permalink to this definition">#</a></dt>
+<dd><p>Creates handler directly form callable object.
+:param obj: callable object
+:raises IncompatibleHandlerFactoryError: when callable object is incompatible
+with factory specification
+:raises HandlerFactoryError: when there is failure during object inspection
+:return: handler invoking given callable object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>obj</strong> (<em>Any</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="mediator.common.handler.html#mediator.common.handler.base.Handler" title="mediator.common.handler.base.Handler"><em>Handler</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mediator.common.factory.CallableHandlerPolicy">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.common.factory.</span></span><span class="sig-name descname"><span class="pre">CallableHandlerPolicy</span></span><a class="reference internal" href="_modules/mediator/common/factory/policies.html#CallableHandlerPolicy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.CallableHandlerPolicy" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mediator.common.factory.policies.MappablePolicy" title="mediator.common.factory.policies.MappablePolicy"><code class="xref py py-class docutils literal notranslate"><span class="pre">MappablePolicy</span></code></a></p>
+<p>Callable handler policy.</p>
+<p>Specification or recipe how to inspect callable object
+and how should be built handler that invokes it.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.common.factory.CallableHandlerPolicy.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subject_arg=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg_map=&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg_strict=False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mediator.common.factory.CallableHandlerPolicy.__init__" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>subject_arg</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
+<li><p><strong>arg_map</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>str</em><em>]</em>) – </p></li>
+<li><p><strong>arg_strict</strong> (<em>bool</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mediator.common.factory.CallableHandlerPolicy.arg_map">
+<span class="sig-name descname"><span class="pre">arg_map</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#mediator.common.factory.CallableHandlerPolicy.arg_map" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mediator.common.factory.CallableHandlerPolicy.arg_strict">
+<span class="sig-name descname"><span class="pre">arg_strict</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#mediator.common.factory.CallableHandlerPolicy.arg_strict" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.common.factory.CallableHandlerPolicy.replace_map">
+<span class="sig-name descname"><span class="pre">replace_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">policy</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/common/factory/policies.html#CallableHandlerPolicy.replace_map"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.CallableHandlerPolicy.replace_map" title="Permalink to this definition">#</a></dt>
+<dd><p>Maps this policy into new one, patching internals by given policy.
+:param policy: policy to patch internals
+:return: new policy that is current one with replaced values form given one</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>policy</strong> (<a class="reference internal" href="#mediator.common.factory.policies.MappablePolicy" title="mediator.common.factory.policies.MappablePolicy"><em>MappablePolicy</em></a>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#mediator.common.factory.policies.CallableHandlerPolicy" title="mediator.common.factory.policies.CallableHandlerPolicy"><em>CallableHandlerPolicy</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mediator.common.factory.CallableHandlerPolicy.subject_arg">
+<span class="sig-name descname"><span class="pre">subject_arg</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#mediator.common.factory.CallableHandlerPolicy.subject_arg" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="mediator.common.factory.CallableHandlerPolicy.subject_as_keyword">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">subject_as_keyword</span></span><a class="headerlink" href="#mediator.common.factory.CallableHandlerPolicy.subject_as_keyword" title="Permalink to this definition">#</a></dt>
+<dd><p>Should primary argument provided as a keyword arg.
+:return: True when according to policy primary argument
+will be always provided as keyword arg, False otherwise</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="mediator.common.factory.ConfigHandlerFactoryCascadeError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.common.factory.</span></span><span class="sig-name descname"><span class="pre">ConfigHandlerFactoryCascadeError</span></span><a class="reference internal" href="_modules/mediator/common/factory/cascade.html#ConfigHandlerFactoryCascadeError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.ConfigHandlerFactoryCascadeError" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ValueError</span></code>, <a class="reference internal" href="#mediator.common.factory.cascade.HandlerFactoryCascadeError" title="mediator.common.factory.cascade.HandlerFactoryCascadeError"><code class="xref py py-class docutils literal notranslate"><span class="pre">HandlerFactoryCascadeError</span></code></a></p>
+<p>Handler factory cascade configuration error.</p>
+<p>Raised when handler factory cascade is not properly configured.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mediator.common.factory.DefaultHandlerFactoryMapper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.common.factory.</span></span><span class="sig-name descname"><span class="pre">DefaultHandlerFactoryMapper</span></span><a class="reference internal" href="_modules/mediator/common/factory/mappers.html#DefaultHandlerFactoryMapper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.DefaultHandlerFactoryMapper" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mediator.common.factory.mappers.TypeHandlerFactoryMapper" title="mediator.common.factory.mappers.TypeHandlerFactoryMapper"><code class="xref py py-class docutils literal notranslate"><span class="pre">TypeHandlerFactoryMapper</span></code></a></p>
+<p>Library default handler factory mapper.</p>
+<p>Maps <cite>CallableHandlerPolicy</cite> objects and <cite>MethodHandlerPolicy</cite> objects
+into handler factories.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.common.factory.DefaultHandlerFactoryMapper.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">extra_mapping</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/common/factory/mappers.html#DefaultHandlerFactoryMapper.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.DefaultHandlerFactoryMapper.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Initializes library default handler factory mapper.
+:param extra_mapping:
+extra policy mapping (policy type -&gt; handler factory provider);
+may be used to extend or override default handler factory mapping</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>extra_mapping</strong> (<em>Optional</em><em>[</em><em>Mapping</em><em>[</em><em>Type</em><em>[</em><em>Any</em><em>]</em><em>, </em><em>Callable</em><em>[</em><em>[</em><em>Any</em><em>]</em><em>, </em><a class="reference internal" href="#mediator.common.factory.base.HandlerFactory" title="mediator.common.factory.base.HandlerFactory"><em>HandlerFactory</em></a><em>]</em><em>]</em><em>]</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.common.factory.DefaultHandlerFactoryMapper.default_mapping">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">default_mapping</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/common/factory/mappers.html#DefaultHandlerFactoryMapper.default_mapping"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.DefaultHandlerFactoryMapper.default_mapping" title="Permalink to this definition">#</a></dt>
+<dd><p>Provides library default policy type to handler factory provider mapping.
+:return: default policy type to handler factory provider mapping</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><em>Dict</em>[<em>Type</em>[<em>Any</em>], <em>Type</em>[<a class="reference internal" href="#mediator.common.factory.base.HandlerFactory" title="mediator.common.factory.base.HandlerFactory"><em>HandlerFactory</em></a>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mediator.common.factory.HandlerFactory">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.common.factory.</span></span><span class="sig-name descname"><span class="pre">HandlerFactory</span></span><a class="reference internal" href="_modules/mediator/common/factory/base.html#HandlerFactory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.HandlerFactory" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Handler factory is an abstraction over action handler creation
+form underlying object.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.common.factory.HandlerFactory.create">
+<span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/common/factory/base.html#HandlerFactory.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.HandlerFactory.create" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>obj</strong> (<em>Any</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="mediator.common.handler.html#mediator.common.handler.base.Handler" title="mediator.common.handler.base.Handler"><em>Handler</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mediator.common.factory.HandlerFactoryCascade">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.common.factory.</span></span><span class="sig-name descname"><span class="pre">HandlerFactoryCascade</span></span><a class="reference internal" href="_modules/mediator/common/factory/cascade.html#HandlerFactoryCascade"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.HandlerFactoryCascade" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Handler factory cascade.</p>
+<p>This cascade is responsible for trying to map given object into handler
+using handler factory sequence.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.common.factory.HandlerFactoryCascade.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">policies</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mapper</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/common/factory/cascade.html#HandlerFactoryCascade.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.HandlerFactoryCascade.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Initializes handler factory cascade.
+:param policies: iterable providing sequence of policies
+to map into handler factories
+:param mapper: (optional)handler factory mapper
+that maps policies into corresponding handler factories;
+when not provided <cite>DefaultHandlerFactoryMapper</cite> is used
+:raises ConfigHandlerFactoryCascadeError: when no polices are provided</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>policies</strong> (<em>Iterable</em><em>[</em><em>Union</em><em>[</em><a class="reference internal" href="#mediator.common.factory.policies.CallableHandlerPolicy" title="mediator.common.factory.policies.CallableHandlerPolicy"><em>CallableHandlerPolicy</em></a><em>, </em><a class="reference internal" href="#mediator.common.factory.policies.MethodHandlerPolicy" title="mediator.common.factory.policies.MethodHandlerPolicy"><em>MethodHandlerPolicy</em></a><em>, </em><a class="reference internal" href="#mediator.common.factory.policies.MappablePolicy" title="mediator.common.factory.policies.MappablePolicy"><em>MappablePolicy</em></a><em>]</em><em>]</em>) – </p></li>
+<li><p><strong>mapper</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="#mediator.common.factory.base.HandlerFactoryMapper" title="mediator.common.factory.base.HandlerFactoryMapper"><em>HandlerFactoryMapper</em></a><em>]</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.common.factory.HandlerFactoryCascade.replace">
+<span class="sig-name descname"><span class="pre">replace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">policies</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/common/factory/cascade.html#HandlerFactoryCascade.replace"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.HandlerFactoryCascade.replace" title="Permalink to this definition">#</a></dt>
+<dd><p>Creates new handler factory cascade that has replaced policy sequence,
+but uses the same policy to handler factory mapper.
+:param policies: iterable providing new sequence of policies (specifications)
+:return: new handler policy cascade initialized using new set of policies
+and same handler factory mapper</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>policies</strong> (<em>Iterable</em><em>[</em><em>Union</em><em>[</em><a class="reference internal" href="#mediator.common.factory.policies.CallableHandlerPolicy" title="mediator.common.factory.policies.CallableHandlerPolicy"><em>CallableHandlerPolicy</em></a><em>, </em><a class="reference internal" href="#mediator.common.factory.policies.MethodHandlerPolicy" title="mediator.common.factory.policies.MethodHandlerPolicy"><em>MethodHandlerPolicy</em></a><em>, </em><a class="reference internal" href="#mediator.common.factory.policies.MappablePolicy" title="mediator.common.factory.policies.MappablePolicy"><em>MappablePolicy</em></a><em>]</em><em>]</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#mediator.common.factory.cascade.HandlerFactoryCascade" title="mediator.common.factory.cascade.HandlerFactoryCascade"><em>HandlerFactoryCascade</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="mediator.common.factory.HandlerFactoryCascadeError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.common.factory.</span></span><span class="sig-name descname"><span class="pre">HandlerFactoryCascadeError</span></span><a class="reference internal" href="_modules/mediator/common/factory/cascade.html#HandlerFactoryCascadeError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.HandlerFactoryCascadeError" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Handler factory cascade base error.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="mediator.common.factory.HandlerFactoryError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.common.factory.</span></span><span class="sig-name descname"><span class="pre">HandlerFactoryError</span></span><a class="reference internal" href="_modules/mediator/common/factory/base.html#HandlerFactoryError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.HandlerFactoryError" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Handler factory error base class.</p>
+<p>All sub error classes related to handler factory inherits form it.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mediator.common.factory.HandlerFactoryMapper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.common.factory.</span></span><span class="sig-name descname"><span class="pre">HandlerFactoryMapper</span></span><a class="reference internal" href="_modules/mediator/common/factory/base.html#HandlerFactoryMapper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.HandlerFactoryMapper" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Handler factory mapper abstraction.
+Maps policy (specification) into handler factory object.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.common.factory.HandlerFactoryMapper.map">
+<span class="sig-name descname"><span class="pre">map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">policy</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/common/factory/base.html#HandlerFactoryMapper.map"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.HandlerFactoryMapper.map" title="Permalink to this definition">#</a></dt>
+<dd><p>Maps given policy (specification) into handler factory
+:param policy: given policy (specification)
+:return: handler factory object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>policy</strong> (<em>Any</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#mediator.common.factory.base.HandlerFactory" title="mediator.common.factory.base.HandlerFactory"><em>HandlerFactory</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.common.factory.HandlerFactoryMapper.map_all">
+<span class="sig-name descname"><span class="pre">map_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">policies</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/common/factory/base.html#HandlerFactoryMapper.map_all"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.HandlerFactoryMapper.map_all" title="Permalink to this definition">#</a></dt>
+<dd><p>Maps all policies (specifications) into handler factory object
+:param policies: iterable providing sequence of policies (specifications)
+:return: sequence of handler factory objects</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>policies</strong> (<em>Iterable</em><em>[</em><em>Any</em><em>]</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><em>Sequence</em>[<a class="reference internal" href="#mediator.common.factory.base.HandlerFactory" title="mediator.common.factory.base.HandlerFactory"><em>HandlerFactory</em></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="mediator.common.factory.IncompatibleHandlerFactoryCascadeError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.common.factory.</span></span><span class="sig-name descname"><span class="pre">IncompatibleHandlerFactoryCascadeError</span></span><a class="reference internal" href="_modules/mediator/common/factory/cascade.html#IncompatibleHandlerFactoryCascadeError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.IncompatibleHandlerFactoryCascadeError" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mediator.common.factory.cascade.HandlerFactoryCascadeError" title="mediator.common.factory.cascade.HandlerFactoryCascadeError"><code class="xref py py-class docutils literal notranslate"><span class="pre">HandlerFactoryCascadeError</span></code></a></p>
+<p>Incompatible handler factory cascade error.</p>
+<p>Raised when handler factory cascade cannot convert given object into handler,
+which means <cite>given object is incompatible and cannot be mapped</cite>.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.common.factory.IncompatibleHandlerFactoryCascadeError.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factory_errors</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/common/factory/cascade.html#IncompatibleHandlerFactoryCascadeError.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.IncompatibleHandlerFactoryCascadeError.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Initializes incompatible handler factory cascade error.
+:param args: python exception args
+:param factory_errors: sequence of
+(&lt;handler factory object&gt;, &lt;given handler factory error&gt;) pairs</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>factory_errors</strong> (<em>Sequence</em><em>[</em><em>Tuple</em><em>[</em><a class="reference internal" href="#mediator.common.factory.base.HandlerFactory" title="mediator.common.factory.base.HandlerFactory"><em>HandlerFactory</em></a><em>, </em><a class="reference internal" href="#mediator.common.factory.base.IncompatibleHandlerFactoryError" title="mediator.common.factory.base.IncompatibleHandlerFactoryError"><em>IncompatibleHandlerFactoryError</em></a><em>]</em><em>]</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="mediator.common.factory.IncompatibleHandlerFactoryError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.common.factory.</span></span><span class="sig-name descname"><span class="pre">IncompatibleHandlerFactoryError</span></span><a class="reference internal" href="_modules/mediator/common/factory/base.html#IncompatibleHandlerFactoryError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.IncompatibleHandlerFactoryError" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TypeError</span></code>, <a class="reference internal" href="#mediator.common.factory.base.HandlerFactoryError" title="mediator.common.factory.base.HandlerFactoryError"><code class="xref py py-class docutils literal notranslate"><span class="pre">HandlerFactoryError</span></code></a></p>
+<p>Incompatible handler factory error.</p>
+<p>Error is raised when given handler factory input cannot be processed
+due to its incompatibility to the factory specification.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="mediator.common.factory.InspectionHandlerFactoryCascadeError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.common.factory.</span></span><span class="sig-name descname"><span class="pre">InspectionHandlerFactoryCascadeError</span></span><a class="reference internal" href="_modules/mediator/common/factory/cascade.html#InspectionHandlerFactoryCascadeError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.InspectionHandlerFactoryCascadeError" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mediator.common.factory.cascade.HandlerFactoryCascadeError" title="mediator.common.factory.cascade.HandlerFactoryCascadeError"><code class="xref py py-class docutils literal notranslate"><span class="pre">HandlerFactoryCascadeError</span></code></a></p>
+<p>Handler factory cascade inspection error.</p>
+<p>Raised when one of handler factory in cascade
+raises inspection machinery failure (non usual situation) error.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.common.factory.InspectionHandlerFactoryCascadeError.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factory</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/common/factory/cascade.html#InspectionHandlerFactoryCascadeError.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.InspectionHandlerFactoryCascadeError.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Initializes inspection handler factory cascade error.
+:param args: python exception args
+:param factory: handler factory that raised inspection error</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>factory</strong> (<a class="reference internal" href="#mediator.common.factory.base.HandlerFactory" title="mediator.common.factory.base.HandlerFactory"><em>HandlerFactory</em></a>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mediator.common.factory.MappablePolicy">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.common.factory.</span></span><span class="sig-name descname"><span class="pre">MappablePolicy</span></span><a class="reference internal" href="_modules/mediator/common/factory/policies.html#MappablePolicy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.MappablePolicy" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Base class for policy - handler factory input specification.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.common.factory.MappablePolicy.replace_map">
+<span class="sig-name descname"><span class="pre">replace_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">policy</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/common/factory/policies.html#MappablePolicy.replace_map"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.MappablePolicy.replace_map" title="Permalink to this definition">#</a></dt>
+<dd><p>Maps this policy into new one, patching internals by given policy.
+:param policy: policy to patch internals
+:return: new policy that is current one with replaced values form given one</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>policy</strong> (<a class="reference internal" href="#mediator.common.factory.policies.MappablePolicy" title="mediator.common.factory.policies.MappablePolicy"><em>MappablePolicy</em></a>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#mediator.common.factory.policies.MappablePolicy" title="mediator.common.factory.policies.MappablePolicy"><em>MappablePolicy</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mediator.common.factory.MethodHandlerFactory">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.common.factory.</span></span><span class="sig-name descname"><span class="pre">MethodHandlerFactory</span></span><a class="reference internal" href="_modules/mediator/common/factory/factories.html#MethodHandlerFactory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.MethodHandlerFactory" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mediator.common.factory.base.HandlerFactory" title="mediator.common.factory.base.HandlerFactory"><code class="xref py py-class docutils literal notranslate"><span class="pre">HandlerFactory</span></code></a></p>
+<p>Method handler factory.</p>
+<p>Factory that produces callable handler from given object attribute
+- in most cases method.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.common.factory.MethodHandlerFactory.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">policy</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/common/factory/factories.html#MethodHandlerFactory.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.MethodHandlerFactory.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Initializes method handler factory.
+:param policy: policy used as a configuration or specification
+for producing handler object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>policy</strong> (<a class="reference internal" href="#mediator.common.factory.policies.MethodHandlerPolicy" title="mediator.common.factory.policies.MethodHandlerPolicy"><em>MethodHandlerPolicy</em></a>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.common.factory.MethodHandlerFactory.create">
+<span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/common/factory/factories.html#MethodHandlerFactory.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.MethodHandlerFactory.create" title="Permalink to this definition">#</a></dt>
+<dd><p>Creates handler from given object attribute according to specification.
+:param obj: callable object
+:raises IncompatibleHandlerFactoryError: when callable object is incompatible
+with factory specification
+:raises HandlerFactoryError: when there is failure during object inspection
+:return: handler invoking given object callable attribute</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>obj</strong> (<em>Any</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="mediator.common.handler.html#mediator.common.handler.base.Handler" title="mediator.common.handler.base.Handler"><em>Handler</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mediator.common.factory.MethodHandlerPolicy">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.common.factory.</span></span><span class="sig-name descname"><span class="pre">MethodHandlerPolicy</span></span><a class="reference internal" href="_modules/mediator/common/factory/policies.html#MethodHandlerPolicy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.MethodHandlerPolicy" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mediator.common.factory.policies.MappablePolicy" title="mediator.common.factory.policies.MappablePolicy"><code class="xref py py-class docutils literal notranslate"><span class="pre">MappablePolicy</span></code></a></p>
+<p>Method handler policy.</p>
+<p>Specification or recipe how to inspect object method
+and how should be built handler that invokes it.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.common.factory.MethodHandlerPolicy.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">policy=&lt;factory&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subtype_of=&lt;factory&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mediator.common.factory.MethodHandlerPolicy.__init__" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – </p></li>
+<li><p><strong>policy</strong> (<a class="reference internal" href="#mediator.common.factory.policies.CallableHandlerPolicy" title="mediator.common.factory.policies.CallableHandlerPolicy"><em>CallableHandlerPolicy</em></a>) – </p></li>
+<li><p><strong>subtype_of</strong> (<em>List</em><em>[</em><em>Type</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mediator.common.factory.MethodHandlerPolicy.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#mediator.common.factory.MethodHandlerPolicy.name" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mediator.common.factory.MethodHandlerPolicy.policy">
+<span class="sig-name descname"><span class="pre">policy</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#mediator.common.factory.policies.CallableHandlerPolicy" title="mediator.common.factory.policies.CallableHandlerPolicy"><span class="pre">CallableHandlerPolicy</span></a></em><a class="headerlink" href="#mediator.common.factory.MethodHandlerPolicy.policy" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="mediator.common.factory.MethodHandlerPolicy.precises_type">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">precises_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#mediator.common.factory.MethodHandlerPolicy.precises_type" title="Permalink to this definition">#</a></dt>
+<dd><p>Is object type checking performed.
+:return: True when corresponding handler factory checks object type,
+False when no object type check is performed</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.common.factory.MethodHandlerPolicy.replace_map">
+<span class="sig-name descname"><span class="pre">replace_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">policy</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/common/factory/policies.html#MethodHandlerPolicy.replace_map"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.MethodHandlerPolicy.replace_map" title="Permalink to this definition">#</a></dt>
+<dd><p>Maps this policy into new one, patching internals by given policy.
+:param policy: policy to patch internals
+:return: new policy that is current one with replaced values form given one</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>policy</strong> (<a class="reference internal" href="#mediator.common.factory.policies.MappablePolicy" title="mediator.common.factory.policies.MappablePolicy"><em>MappablePolicy</em></a>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#mediator.common.factory.policies.MethodHandlerPolicy" title="mediator.common.factory.policies.MethodHandlerPolicy"><em>MethodHandlerPolicy</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mediator.common.factory.MethodHandlerPolicy.subtype_of">
+<span class="sig-name descname"><span class="pre">subtype_of</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Type</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#mediator.common.factory.MethodHandlerPolicy.subtype_of" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mediator.common.factory.TypeHandlerFactoryMapper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.common.factory.</span></span><span class="sig-name descname"><span class="pre">TypeHandlerFactoryMapper</span></span><a class="reference internal" href="_modules/mediator/common/factory/mappers.html#TypeHandlerFactoryMapper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.TypeHandlerFactoryMapper" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mediator.common.factory.base.HandlerFactoryMapper" title="mediator.common.factory.base.HandlerFactoryMapper"><code class="xref py py-class docutils literal notranslate"><span class="pre">HandlerFactoryMapper</span></code></a></p>
+<p>Type handler factory mapper.</p>
+<p>Mapper that maps given policy into handler factory object
+using policy type to handler factory provider mapping.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.common.factory.TypeHandlerFactoryMapper.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mapping</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/common/factory/mappers.html#TypeHandlerFactoryMapper.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.TypeHandlerFactoryMapper.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Initializes type handler factory mapper.
+:param mapping: policy type to handler factory provider mapping</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mapping</strong> (<em>Mapping</em><em>[</em><em>Type</em><em>[</em><em>Any</em><em>]</em><em>, </em><em>Callable</em><em>[</em><em>[</em><em>Any</em><em>]</em><em>, </em><a class="reference internal" href="#mediator.common.factory.base.HandlerFactory" title="mediator.common.factory.base.HandlerFactory"><em>HandlerFactory</em></a><em>]</em><em>]</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.common.factory.TypeHandlerFactoryMapper.map">
+<span class="sig-name descname"><span class="pre">map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">policy</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/common/factory/mappers.html#TypeHandlerFactoryMapper.map"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.common.factory.TypeHandlerFactoryMapper.map" title="Permalink to this definition">#</a></dt>
+<dd><p>Provides handler factory object according to given policy (specification).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>policy</strong> (<em>Any</em>) – policy to map into handler factory</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>TypeError</strong> – when given type policy is not supported</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>handler factory object</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#mediator.common.factory.base.HandlerFactory" title="mediator.common.factory.base.HandlerFactory"><em>HandlerFactory</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+            </article>
+            
+            
+            
+            <footer class="bd-footer-article">
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+            
+          </div>
+          
+          
+          
+            <div class="bd-sidebar-secondary bd-toc">
+              
+<div class="toc-item">
+  
+<div class="tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#subpackages">
+   Subpackages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#submodules">
+   Submodules
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-mediator.common.factory.base">
+   mediator.common.factory.base module
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.common.factory.base.HandlerFactory">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       HandlerFactory
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.base.HandlerFactory.create">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         HandlerFactory.create()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.common.factory.base.HandlerFactoryError">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       HandlerFactoryError
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.common.factory.base.HandlerFactoryMapper">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       HandlerFactoryMapper
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.base.HandlerFactoryMapper.map">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         HandlerFactoryMapper.map()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.base.HandlerFactoryMapper.map_all">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         HandlerFactoryMapper.map_all()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.common.factory.base.IncompatibleHandlerFactoryError">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       IncompatibleHandlerFactoryError
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-mediator.common.factory.cascade">
+   mediator.common.factory.cascade module
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.common.factory.cascade.ConfigHandlerFactoryCascadeError">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ConfigHandlerFactoryCascadeError
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.common.factory.cascade.HandlerFactoryCascade">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       HandlerFactoryCascade
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.cascade.HandlerFactoryCascade.__init__">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         HandlerFactoryCascade.__init__()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.cascade.HandlerFactoryCascade.replace">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         HandlerFactoryCascade.replace()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.common.factory.cascade.HandlerFactoryCascadeError">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       HandlerFactoryCascadeError
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.common.factory.cascade.IncompatibleHandlerFactoryCascadeError">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       IncompatibleHandlerFactoryCascadeError
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.cascade.IncompatibleHandlerFactoryCascadeError.__init__">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         IncompatibleHandlerFactoryCascadeError.__init__()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.common.factory.cascade.InspectionHandlerFactoryCascadeError">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       InspectionHandlerFactoryCascadeError
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.cascade.InspectionHandlerFactoryCascadeError.__init__">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         InspectionHandlerFactoryCascadeError.__init__()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-mediator.common.factory.factories">
+   mediator.common.factory.factories module
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.common.factory.factories.CallableHandlerFactory">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       CallableHandlerFactory
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.factories.CallableHandlerFactory.__init__">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         CallableHandlerFactory.__init__()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.factories.CallableHandlerFactory.create">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         CallableHandlerFactory.create()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.common.factory.factories.MethodHandlerFactory">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       MethodHandlerFactory
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.factories.MethodHandlerFactory.__init__">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         MethodHandlerFactory.__init__()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.factories.MethodHandlerFactory.create">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         MethodHandlerFactory.create()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-mediator.common.factory.mappers">
+   mediator.common.factory.mappers module
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.common.factory.mappers.DefaultHandlerFactoryMapper">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       DefaultHandlerFactoryMapper
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.mappers.DefaultHandlerFactoryMapper.__init__">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         DefaultHandlerFactoryMapper.__init__()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.mappers.DefaultHandlerFactoryMapper.default_mapping">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         DefaultHandlerFactoryMapper.default_mapping()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.common.factory.mappers.TypeHandlerFactoryMapper">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       TypeHandlerFactoryMapper
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.mappers.TypeHandlerFactoryMapper.__init__">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         TypeHandlerFactoryMapper.__init__()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.mappers.TypeHandlerFactoryMapper.map">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         TypeHandlerFactoryMapper.map()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-mediator.common.factory.policies">
+   mediator.common.factory.policies module
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.common.factory.policies.CallableHandlerPolicy">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       CallableHandlerPolicy
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.policies.CallableHandlerPolicy.__init__">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         CallableHandlerPolicy.__init__()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.policies.CallableHandlerPolicy.arg_map">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         CallableHandlerPolicy.arg_map
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.policies.CallableHandlerPolicy.arg_strict">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         CallableHandlerPolicy.arg_strict
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.policies.CallableHandlerPolicy.replace_map">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         CallableHandlerPolicy.replace_map()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.policies.CallableHandlerPolicy.subject_arg">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         CallableHandlerPolicy.subject_arg
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.policies.CallableHandlerPolicy.subject_as_keyword">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         CallableHandlerPolicy.subject_as_keyword
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.common.factory.policies.MappablePolicy">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       MappablePolicy
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.policies.MappablePolicy.replace_map">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         MappablePolicy.replace_map()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.common.factory.policies.MethodHandlerPolicy">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       MethodHandlerPolicy
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.policies.MethodHandlerPolicy.__init__">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         MethodHandlerPolicy.__init__()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.policies.MethodHandlerPolicy.name">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         MethodHandlerPolicy.name
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.policies.MethodHandlerPolicy.policy">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         MethodHandlerPolicy.policy
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.policies.MethodHandlerPolicy.precises_type">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         MethodHandlerPolicy.precises_type
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.policies.MethodHandlerPolicy.replace_map">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         MethodHandlerPolicy.replace_map()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.policies.MethodHandlerPolicy.subtype_of">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         MethodHandlerPolicy.subtype_of
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-mediator.common.factory.utils">
+   mediator.common.factory.utils module
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.common.factory.utils.CallableAttributeDetails">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       CallableAttributeDetails
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.utils.CallableAttributeDetails.__init__">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         CallableAttributeDetails.__init__()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.utils.CallableAttributeDetails.name">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         CallableAttributeDetails.name
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.utils.CallableAttributeDetails.subtype_of">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         CallableAttributeDetails.subtype_of
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.common.factory.utils.CallableHandlerCreate">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       CallableHandlerCreate
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.utils.CallableHandlerCreate.__init__">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         CallableHandlerCreate.__init__()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.common.factory.utils.CallableObjDetails">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       CallableObjDetails
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.common.factory.utils.HandlerSubjectArgGet">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       HandlerSubjectArgGet
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.utils.HandlerSubjectArgGet.__init__">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         HandlerSubjectArgGet.__init__()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-mediator.common.factory">
+   Module contents
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.common.factory.CallableHandlerFactory">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       CallableHandlerFactory
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.CallableHandlerFactory.__init__">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         CallableHandlerFactory.__init__()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.CallableHandlerFactory.create">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         CallableHandlerFactory.create()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.common.factory.CallableHandlerPolicy">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       CallableHandlerPolicy
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.CallableHandlerPolicy.__init__">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         CallableHandlerPolicy.__init__()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.CallableHandlerPolicy.arg_map">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         CallableHandlerPolicy.arg_map
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.CallableHandlerPolicy.arg_strict">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         CallableHandlerPolicy.arg_strict
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.CallableHandlerPolicy.replace_map">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         CallableHandlerPolicy.replace_map()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.CallableHandlerPolicy.subject_arg">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         CallableHandlerPolicy.subject_arg
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.CallableHandlerPolicy.subject_as_keyword">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         CallableHandlerPolicy.subject_as_keyword
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.common.factory.ConfigHandlerFactoryCascadeError">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ConfigHandlerFactoryCascadeError
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.common.factory.DefaultHandlerFactoryMapper">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       DefaultHandlerFactoryMapper
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.DefaultHandlerFactoryMapper.__init__">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         DefaultHandlerFactoryMapper.__init__()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.DefaultHandlerFactoryMapper.default_mapping">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         DefaultHandlerFactoryMapper.default_mapping()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.common.factory.HandlerFactory">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       HandlerFactory
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.HandlerFactory.create">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         HandlerFactory.create()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.common.factory.HandlerFactoryCascade">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       HandlerFactoryCascade
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.HandlerFactoryCascade.__init__">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         HandlerFactoryCascade.__init__()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.HandlerFactoryCascade.replace">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         HandlerFactoryCascade.replace()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.common.factory.HandlerFactoryCascadeError">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       HandlerFactoryCascadeError
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.common.factory.HandlerFactoryError">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       HandlerFactoryError
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.common.factory.HandlerFactoryMapper">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       HandlerFactoryMapper
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.HandlerFactoryMapper.map">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         HandlerFactoryMapper.map()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.HandlerFactoryMapper.map_all">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         HandlerFactoryMapper.map_all()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.common.factory.IncompatibleHandlerFactoryCascadeError">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       IncompatibleHandlerFactoryCascadeError
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.IncompatibleHandlerFactoryCascadeError.__init__">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         IncompatibleHandlerFactoryCascadeError.__init__()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.common.factory.IncompatibleHandlerFactoryError">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       IncompatibleHandlerFactoryError
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.common.factory.InspectionHandlerFactoryCascadeError">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       InspectionHandlerFactoryCascadeError
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.InspectionHandlerFactoryCascadeError.__init__">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         InspectionHandlerFactoryCascadeError.__init__()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.common.factory.MappablePolicy">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       MappablePolicy
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.MappablePolicy.replace_map">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         MappablePolicy.replace_map()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.common.factory.MethodHandlerFactory">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       MethodHandlerFactory
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.MethodHandlerFactory.__init__">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         MethodHandlerFactory.__init__()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.MethodHandlerFactory.create">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         MethodHandlerFactory.create()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.common.factory.MethodHandlerPolicy">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       MethodHandlerPolicy
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.MethodHandlerPolicy.__init__">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         MethodHandlerPolicy.__init__()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.MethodHandlerPolicy.name">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         MethodHandlerPolicy.name
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.MethodHandlerPolicy.policy">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         MethodHandlerPolicy.policy
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.MethodHandlerPolicy.precises_type">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         MethodHandlerPolicy.precises_type
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.MethodHandlerPolicy.replace_map">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         MethodHandlerPolicy.replace_map()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.MethodHandlerPolicy.subtype_of">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         MethodHandlerPolicy.subtype_of
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.common.factory.TypeHandlerFactoryMapper">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       TypeHandlerFactoryMapper
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.TypeHandlerFactoryMapper.__init__">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         TypeHandlerFactoryMapper.__init__()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.common.factory.TypeHandlerFactoryMapper.map">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         TypeHandlerFactoryMapper.map()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+</div>
+
+<div class="toc-item">
+  
+<div id="searchbox"></div>
+</div>
+
+<div class="toc-item">
+  
+</div>
+
+<div class="toc-item">
+  
+<div class="tocsection sourcelink">
+    <a href="_sources/mediator.common.factory.rst.txt">
+        <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+</div>
+
+</div>
+
+            </div>
+          
+          
+        </div>
+        <footer class="bd-footer-content">
+          <div class="bd-footer-content__inner">
+            
+          </div>
+        </footer>
+        
+      </main>
+    </div>
+  </div>
+
+  
+    
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94"></script>
+
+  <footer class="bd-footer"><div class="bd-footer__inner container">
+  
+  <div class="footer-item">
+    
+<p class="copyright">
+
+    &copy; Copyright 2022, other.<br>
+
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="theme-version">
+    Built with the
+    <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">
+        PyData Sphinx Theme
+    </a>
+    0.12.0.
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+<p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.3.0.<br>
+</p>
+
+  </div>
+  
+</div>
+  </footer>
+  </body>
+</html>

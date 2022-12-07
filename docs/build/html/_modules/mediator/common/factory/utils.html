@@ -1,0 +1,552 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mediator.common.factory.utils &#8212; mediator 0.7.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="../../../../_static/styles/bootstrap.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+
+  
+  <link href="../../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94">
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94">
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/sphinx_highlight.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/mediator/common/factory/utils';</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="en">
+  </head>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
+  <label class="overlay overlay-primary" for="__primary"></label>
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+      
+<form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+  </div>
+
+  
+  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+      <span class="fa-solid fa-bars"></span>
+  </label>
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="../../../../index.html">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <p class="title logo__title">mediator 0.7.0 documentation</p>
+  
+</a>
+    
+  </div>
+
+  
+  <div class="col-lg-9 navbar-header-items">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+    </ul>
+</nav>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+        <div class="navbar-end-item navbar-persistent--container">
+          
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+        </div>
+      
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+
+
+  
+  
+    <div class="navbar-persistent--mobile">
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+    </div>
+  
+
+  
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+  </label>
+  
+
+</div>
+  </nav>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+    </ul>
+</nav>
+      </div>
+      
+      </div>
+    
+
+    
+    
+    <div class="sidebar-header-items__end">
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  
+
+  
+  <div class="sidebar-end-items sidebar-primary__section">
+    <div class="sidebar-end-items__item">
+    </div>
+  </div>
+
+  
+  <div id="rtd-footer-container"></div>
+
+      </div>
+      <main id="main-content" class="bd-main">
+        
+        
+        <div class="bd-content">
+          <div class="bd-article-container">
+            
+            <div class="bd-header-article">
+                
+            </div>
+            
+            
+            <article class="bd-article" role="main">
+              
+  <h1>Source code for mediator.common.factory.utils</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Tuple</span>
+
+<span class="kn">from</span> <span class="nn">mediator.common.factory.base</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">HandlerFactoryError</span><span class="p">,</span>
+    <span class="n">IncompatibleHandlerFactoryError</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">mediator.common.handler</span> <span class="kn">import</span> <span class="n">CallableHandler</span><span class="p">,</span> <span class="n">Handler</span>
+<span class="kn">from</span> <span class="nn">mediator.utils.inspection</span> <span class="kn">import</span> <span class="n">CallableArg</span><span class="p">,</span> <span class="n">CallableDetails</span><span class="p">,</span> <span class="n">CallableInspector</span>
+
+
+<div class="viewcode-block" id="CallableObjDetails"><a class="viewcode-back" href="../../../../mediator.common.factory.html#mediator.common.factory.utils.CallableObjDetails">[docs]</a><span class="k">class</span> <span class="nc">CallableObjDetails</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Utility that wraps callable object inspection procedure into handler factory world.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CallableDetails</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides callable object inspection result</span>
+<span class="sd">        or raises an error when obj is not callable.</span>
+<span class="sd">        :param obj: callable object to inspect</span>
+<span class="sd">        :raises IncompatibleHandlerFactoryError: when obj is not valid callable</span>
+<span class="sd">        :return: `CallableDetails` object</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">CallableInspector</span><span class="o">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">IncompatibleHandlerFactoryError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">obj</span><span class="si">!r}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="CallableAttributeDetails"><a class="viewcode-back" href="../../../../mediator.common.factory.html#mediator.common.factory.utils.CallableAttributeDetails">[docs]</a><span class="k">class</span> <span class="nc">CallableAttributeDetails</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Utility that (optionally) checks if object has valid type</span>
+<span class="sd">    and performs callable inspection for given object attribute.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">subtype_of</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+
+<div class="viewcode-block" id="CallableAttributeDetails.__init__"><a class="viewcode-back" href="../../../../mediator.common.factory.html#mediator.common.factory.utils.CallableAttributeDetails.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">owner_subtype_of</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">()):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes callable attribute inspection object,</span>
+<span class="sd">        that (optionally) checks if object has valid type</span>
+<span class="sd">        and performs callable inspection for given object attribute</span>
+<span class="sd">        :param name: inspection object attribute name</span>
+<span class="sd">        :param owner_subtype_of: sequence of types to check</span>
+<span class="sd">        if an instance of an input object is one of them;</span>
+<span class="sd">        just like `isinstance(obj, owner_subtype_of)`</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">subtype_of</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">owner_subtype_of</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CallableDetails</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        (Optionally) checks if object has valid type</span>
+<span class="sd">        and performs callable inspection for given object attribute.</span>
+<span class="sd">        :param obj: input object</span>
+<span class="sd">        :raises IncompatibleHandlerFactoryError: when object type is not supported</span>
+<span class="sd">        :raises IncompatibleHandlerFactoryError:</span>
+<span class="sd">        when object has no attribute with expected name</span>
+<span class="sd">        :raises IncompatibleHandlerFactoryError:</span>
+<span class="sd">        when expected attribute is not callable</span>
+<span class="sd">        :return: callable object attribute `CallableDetails` result</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">subtype_of</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">subtype_of</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="n">IncompatibleHandlerFactoryError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Object </span><span class="si">{</span><span class="n">obj</span><span class="si">!r}</span><span class="s2"> is not type of </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">subtype_of</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">attr</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">IncompatibleHandlerFactoryError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Object </span><span class="si">{</span><span class="n">obj</span><span class="si">!r}</span><span class="s2"> has no attribute named </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">CallableInspector</span><span class="o">.</span><span class="n">inspect</span><span class="p">(</span><span class="n">attr</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">IncompatibleHandlerFactoryError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">obj</span><span class="si">!r}</span><span class="s2"> attribute </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="HandlerSubjectArgGet"><a class="viewcode-back" href="../../../../mediator.common.factory.html#mediator.common.factory.utils.HandlerSubjectArgGet">[docs]</a><span class="k">class</span> <span class="nc">HandlerSubjectArgGet</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Utility that finds primary argument for given callable object,</span>
+<span class="sd">    to be filled with action subject (event, request, command etc object).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="HandlerSubjectArgGet.__init__"><a class="viewcode-back" href="../../../../mediator.common.factory.html#mediator.common.factory.utils.HandlerSubjectArgGet.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes utility that finds primary argument for given callable object.</span>
+<span class="sd">        :param name: optional argument name hint;</span>
+<span class="sd">        when provided utility will assume argument with that name as primary</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span></div>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">details</span><span class="p">:</span> <span class="n">CallableDetails</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CallableArg</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Provides callable primary argument using `CallableDetails` object.</span>
+<span class="sd">        :param details: callable details to use</span>
+<span class="sd">        :raises IncompatibleHandlerFactoryError: when callable has no arguments</span>
+<span class="sd">        :raises IncompatibleHandlerFactoryError: when argument name was specified,</span>
+<span class="sd">        but no matching argument was found</span>
+<span class="sd">        :raises IncompatibleHandlerFactoryError: when argument has no or invalid type</span>
+<span class="sd">        :raises HandlerFactoryError:</span>
+<span class="sd">        when for found primary argument cannot be determined unequivocal type</span>
+<span class="sd">        :return: primary argument details</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">details</span><span class="o">.</span><span class="n">args</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">IncompatibleHandlerFactoryError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Callable </span><span class="si">{</span><span class="n">details</span><span class="o">.</span><span class="n">obj</span><span class="si">!r}</span><span class="s2"> has no explicit argument&quot;</span>
+            <span class="p">)</span>
+        <span class="n">arg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find</span><span class="p">(</span><span class="n">details</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_type</span><span class="p">(</span><span class="n">details</span><span class="p">,</span> <span class="n">arg</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">arg</span>
+
+    <span class="k">def</span> <span class="nf">_find</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">details</span><span class="p">:</span> <span class="n">CallableDetails</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CallableArg</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Finds primary callable argument using given details</span>
+<span class="sd">        :param details: callable details</span>
+<span class="sd">        :raises IncompatibleHandlerFactoryError: when callable has no arguments</span>
+<span class="sd">        :raises IncompatibleHandlerFactoryError: when argument name was specified,</span>
+<span class="sd">        but no matching argument was found</span>
+<span class="sd">        :return: primary argument details</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_find_by_name</span><span class="p">(</span><span class="n">details</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_first</span><span class="p">(</span><span class="n">details</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_find_by_name</span><span class="p">(</span><span class="n">details</span><span class="p">:</span> <span class="n">CallableDetails</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Tries to find primary argument by name using given callable details.</span>
+<span class="sd">        :param details: callable details</span>
+<span class="sd">        :param name: argument name</span>
+<span class="sd">        :raises IncompatibleHandlerFactoryError: when no matching argument was found</span>
+<span class="sd">        :return: primary argument details</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">arg</span> <span class="o">=</span> <span class="n">details</span><span class="o">.</span><span class="n">arg_by_name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">arg</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">IncompatibleHandlerFactoryError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Callable </span><span class="si">{</span><span class="n">details</span><span class="o">.</span><span class="n">obj</span><span class="si">!r}</span><span class="s2"> has no argument named </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="n">arg</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_get_first</span><span class="p">(</span><span class="n">details</span><span class="p">:</span> <span class="n">CallableDetails</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CallableArg</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns first callable argument as primary</span>
+<span class="sd">        :param details: callable details</span>
+<span class="sd">        :return: primary argument details</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">details</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_check_type</span><span class="p">(</span><span class="n">details</span><span class="p">:</span> <span class="n">CallableDetails</span><span class="p">,</span> <span class="n">arg</span><span class="p">:</span> <span class="n">CallableArg</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Checks given primary argument candidate is a valid one</span>
+<span class="sd">        :param details: callable details</span>
+<span class="sd">        :param arg: primary argument candidate details</span>
+<span class="sd">        :raises HandlerFactoryError:</span>
+<span class="sd">        when for given primary argument cannot be determined unequivocal type</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">arg</span><span class="o">.</span><span class="n">type</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">HandlerFactoryError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Callable </span><span class="si">{</span><span class="n">details</span><span class="o">.</span><span class="n">obj</span><span class="si">!r}</span><span class="s2"> argument </span><span class="si">{</span><span class="n">arg</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> has no type annotation&quot;</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arg</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="nb">type</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">HandlerFactoryError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Callable </span><span class="si">{</span><span class="n">details</span><span class="o">.</span><span class="n">obj</span><span class="si">!r}</span><span class="s2"> argument </span><span class="si">{</span><span class="n">arg</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot; type annotation is not a type&quot;</span>
+            <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="CallableHandlerCreate"><a class="viewcode-back" href="../../../../mediator.common.factory.html#mediator.common.factory.utils.CallableHandlerCreate">[docs]</a><span class="k">class</span> <span class="nc">CallableHandlerCreate</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates callable handler using given specification.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="CallableHandlerCreate.__init__"><a class="viewcode-back" href="../../../../mediator.common.factory.html#mediator.common.factory.utils.CallableHandlerCreate.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">subject_as_keyword</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">arg_map</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="n">arg_strict</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes callable handler factory using given specification.</span>
+<span class="sd">        :param subject_as_keyword:</span>
+<span class="sd">        force to provide primary (subject) argument as keyword argument</span>
+<span class="sd">        :param arg_map: action extra arguments to callable arguments name mapping;</span>
+<span class="sd">        used for translation to reconcile argument name differences</span>
+<span class="sd">        :param arg_strict: when True all action arguments will be provided for handler,</span>
+<span class="sd">        when False only those that fits into handler callable arguments set</span>
+<span class="sd">        (excessive ones will be dropped)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">subject_as_keyword</span> <span class="o">=</span> <span class="n">subject_as_keyword</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">arg_map</span> <span class="o">=</span> <span class="n">arg_map</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">arg_strict</span> <span class="o">=</span> <span class="n">arg_strict</span></div>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">details</span><span class="p">:</span> <span class="n">CallableDetails</span><span class="p">,</span> <span class="n">arg</span><span class="p">:</span> <span class="n">CallableArg</span><span class="p">,</span> <span class="n">obj</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Handler</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates callable handler using given specification and configuration.</span>
+<span class="sd">        :param details: callable details</span>
+<span class="sd">        :param arg: primary (subject) argument specification</span>
+<span class="sd">        :param obj: underlying object</span>
+<span class="sd">        - source of callable object and handler behaviour information object</span>
+<span class="sd">        :raises HandlerFactoryError: when callable object is not async callable</span>
+<span class="sd">        :return: handler object that can call underlying callable using provided action</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">details</span><span class="o">.</span><span class="n">is_async</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">HandlerFactoryError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Object </span><span class="si">{</span><span class="n">details</span><span class="o">.</span><span class="n">obj</span><span class="si">!r}</span><span class="s2"> is not async callable&quot;</span><span class="p">)</span>
+
+        <span class="n">subject_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">subject_as_keyword</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">arg</span><span class="o">.</span><span class="n">is_positional</span><span class="p">:</span>
+            <span class="n">subject_name</span> <span class="o">=</span> <span class="n">arg</span><span class="o">.</span><span class="n">name</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">subject_name</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">arg_strict</span> <span class="ow">or</span> <span class="n">details</span><span class="o">.</span><span class="n">has_kwargs</span><span class="p">:</span>
+            <span class="n">allow_args</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">allow_args</span> <span class="o">=</span> <span class="p">{</span><span class="n">arg</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">details</span><span class="o">.</span><span class="n">args</span><span class="p">}</span>
+
+        <span class="k">return</span> <span class="n">CallableHandler</span><span class="p">(</span>
+            <span class="n">obj</span><span class="o">=</span><span class="n">obj</span><span class="p">,</span>
+            <span class="n">fn</span><span class="o">=</span><span class="n">details</span><span class="o">.</span><span class="n">obj</span><span class="p">,</span>
+            <span class="n">key</span><span class="o">=</span><span class="n">arg</span><span class="o">.</span><span class="n">type</span><span class="p">,</span>
+            <span class="n">subject_name</span><span class="o">=</span><span class="n">subject_name</span><span class="p">,</span>
+            <span class="n">arg_map</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">arg_map</span><span class="p">,</span>
+            <span class="n">allow_args</span><span class="o">=</span><span class="n">allow_args</span><span class="p">,</span>
+        <span class="p">)</span></div>
+</pre></div>
+
+            </article>
+            
+            
+            
+            <footer class="bd-footer-article">
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+            
+          </div>
+          
+          
+          
+            <div class="bd-sidebar-secondary bd-toc">
+              
+<div class="toc-item">
+  
+<div id="searchbox"></div>
+</div>
+
+<div class="toc-item">
+  
+</div>
+
+<div class="toc-item">
+  
+</div>
+
+            </div>
+          
+          
+        </div>
+        <footer class="bd-footer-content">
+          <div class="bd-footer-content__inner">
+            
+          </div>
+        </footer>
+        
+      </main>
+    </div>
+  </div>
+
+  
+    
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94"></script>
+<script src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94"></script>
+
+  <footer class="bd-footer"><div class="bd-footer__inner container">
+  
+  <div class="footer-item">
+    
+<p class="copyright">
+
+    &copy; Copyright 2022, other.<br>
+
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="theme-version">
+    Built with the
+    <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">
+        PyData Sphinx Theme
+    </a>
+    0.12.0.
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+<p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.3.0.<br>
+</p>
+
+  </div>
+  
+</div>
+  </footer>
+  </body>
+</html>

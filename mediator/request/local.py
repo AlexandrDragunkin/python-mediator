@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from typing import Any, Dict, Hashable, Iterable, Optional, Sequence
 
 from mediator.common.factory import (
@@ -18,37 +19,36 @@ from mediator.request.base import RequestExecutor
 
 class _RequestExecutorHandlerStore(MappingHandlerStore):
     """
-    Utility request handler store, based on mapping handler store
-    to work with local request execution.
+    Utility request handler store, based on mapping handler store to work with local request execution.
+    Хранилище обработчиков служебных запросов, основанное на сопоставлении хранилища обработчиков для работы с локальным выполнением запросов.
     """
 
     _calls: Dict[Hashable, ActionCallType]
 
     def __init__(self):
         """
-        Initializes empty request executor handler store.
+        Инициализирует пустое хранилище обработчиков исполнителя запроса.
         """
         super().__init__()
         self._calls = {}
 
     def add(self, entry: HandlerEntry):
         """
-        Adds given handler entry into store
-        and connects handler entry to process requests.
-        :param entry: handler entry to connect
+        Добавляет данную запись обработчика(handler entry) в хранилище и подключает запись обработчика(handler entry) к запросам на обработку(process requests).
+        :param entry: запись обработчика для подключения
         :raises CollisionHandlerStoreError:
-        when handler entry with given key already exists in this store
+        когда запись обработчика с заданным ключом уже существует в этом хранилище
         """
         super().add(entry)
         self._map_call(entry)
 
     def include(self, entries: Iterable[HandlerEntry]):
         """
-        Adds all handler entries from given iterable into store
-        and connects all handler entries from given iterable to process requests.
-        :param entries: handler entries iterator
+        Adds all handler entries from given iterable into store and connects all handler entries from given iterable to process requests.
+        Добавляет все записи обработчика из данного iterable в хранилище и соединяет все записи обработчика из данного iterable с запросами на обработку.
+        :param entries: итератор записей обработчика
         :raises CollisionHandlerStoreError:
-        when handler entry with given key already exists in this store
+        когда запись обработчика с заданным ключом уже существует в этом хранилище
         """
         super().include(entries)
         for entry in entries:

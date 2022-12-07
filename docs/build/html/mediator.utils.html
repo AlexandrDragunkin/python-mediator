@@ -1,0 +1,941 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mediator.utils package &#8212; mediator 0.7.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="_static/styles/bootstrap.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94">
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'mediator.utils';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="en">
+  </head>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
+  <label class="overlay overlay-primary" for="__primary"></label>
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+      
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+  </div>
+
+  
+  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+      <span class="fa-solid fa-bars"></span>
+  </label>
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="index.html">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <p class="title logo__title">mediator 0.7.0 documentation</p>
+  
+</a>
+    
+  </div>
+
+  
+  <div class="col-lg-9 navbar-header-items">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+    </ul>
+</nav>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+        <div class="navbar-end-item navbar-persistent--container">
+          
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+        </div>
+      
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+
+
+  
+  
+    <div class="navbar-persistent--mobile">
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+    </div>
+  
+
+  
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+  </label>
+  
+
+</div>
+  </nav>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+    </ul>
+</nav>
+      </div>
+      
+      </div>
+    
+
+    
+    
+    <div class="sidebar-header-items__end">
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  
+  <div class="sidebar-start-items sidebar-primary__section">
+    <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Section navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">
+    Section Navigation
+  </p>
+  <div class="bd-toc-item navbar-nav">
+    <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="mediator.common.html">mediator.common package</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="mediator.common.factory.html">mediator.common.factory package</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="mediator.common.factory.test.html">mediator.common.factory.test package</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="mediator.common.handler.html">mediator.common.handler package</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="mediator.common.handler.test.html">mediator.common.handler.test package</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="mediator.common.registry.html">mediator.common.registry package</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="mediator.common.registry.test.html">mediator.common.registry.test package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mediator.common.test.html">mediator.common.test package</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="mediator.event.html">mediator.event package</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="mediator.event.test.html">mediator.event.test package</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="mediator.request.html">mediator.request package</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="mediator.request.test.html">mediator.request.test package</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">mediator.utils package</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="mediator.utils.test.html">mediator.utils.test package</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+</nav>
+    </div>
+  </div>
+  
+
+  
+  <div class="sidebar-end-items sidebar-primary__section">
+    <div class="sidebar-end-items__item">
+    </div>
+  </div>
+
+  
+  <div id="rtd-footer-container"></div>
+
+      </div>
+      <main id="main-content" class="bd-main">
+        
+        
+        <div class="bd-content">
+          <div class="bd-article-container">
+            
+            <div class="bd-header-article">
+                
+            </div>
+            
+            
+            <article class="bd-article" role="main">
+              
+  <div class="section" id="mediator-utils-package">
+<h1>mediator.utils package<a class="headerlink" href="#mediator-utils-package" title="Permalink to this heading">#</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mediator.utils.test.html">mediator.utils.test package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mediator.utils.test.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mediator.utils.test.html#module-mediator.utils.test.test_inspection">mediator.utils.test.test_inspection module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mediator.utils.test.html#mediator.utils.test.test_inspection.Methods"><code class="docutils literal notranslate"><span class="pre">Methods</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="mediator.utils.test.html#mediator.utils.test.test_inspection.Methods.a"><code class="docutils literal notranslate"><span class="pre">Methods.a()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mediator.utils.test.html#mediator.utils.test.test_inspection.Methods.a_check"><code class="docutils literal notranslate"><span class="pre">Methods.a_check()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mediator.utils.test.html#mediator.utils.test.test_inspection.Methods.b"><code class="docutils literal notranslate"><span class="pre">Methods.b()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mediator.utils.test.html#mediator.utils.test.test_inspection.Methods.b_check"><code class="docutils literal notranslate"><span class="pre">Methods.b_check()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mediator.utils.test.html#mediator.utils.test.test_inspection.Methods.c"><code class="docutils literal notranslate"><span class="pre">Methods.c()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mediator.utils.test.html#mediator.utils.test.test_inspection.Methods.c_check"><code class="docutils literal notranslate"><span class="pre">Methods.c_check()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mediator.utils.test.html#mediator.utils.test.test_inspection.Methods.call_check"><code class="docutils literal notranslate"><span class="pre">Methods.call_check()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mediator.utils.test.html#mediator.utils.test.test_inspection.Methods.d"><code class="docutils literal notranslate"><span class="pre">Methods.d()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mediator.utils.test.html#mediator.utils.test.test_inspection.Methods.d_check"><code class="docutils literal notranslate"><span class="pre">Methods.d_check()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mediator.utils.test.html#mediator.utils.test.test_inspection.Methods.e"><code class="docutils literal notranslate"><span class="pre">Methods.e()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mediator.utils.test.html#mediator.utils.test.test_inspection.Methods.e_check"><code class="docutils literal notranslate"><span class="pre">Methods.e_check()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mediator.utils.test.html#mediator.utils.test.test_inspection.Methods.f"><code class="docutils literal notranslate"><span class="pre">Methods.f()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="mediator.utils.test.html#mediator.utils.test.test_inspection.Methods.f_check"><code class="docutils literal notranslate"><span class="pre">Methods.f_check()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mediator.utils.test.html#mediator.utils.test.test_inspection.X"><code class="docutils literal notranslate"><span class="pre">X</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mediator.utils.test.html#mediator.utils.test.test_inspection.a"><code class="docutils literal notranslate"><span class="pre">a()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mediator.utils.test.html#mediator.utils.test.test_inspection.a_check"><code class="docutils literal notranslate"><span class="pre">a_check()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mediator.utils.test.html#mediator.utils.test.test_inspection.b"><code class="docutils literal notranslate"><span class="pre">b()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mediator.utils.test.html#mediator.utils.test.test_inspection.b_check"><code class="docutils literal notranslate"><span class="pre">b_check()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mediator.utils.test.html#mediator.utils.test.test_inspection.test_callable_inspector"><code class="docutils literal notranslate"><span class="pre">test_callable_inspector()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mediator.utils.test.html#module-mediator.utils.test">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">#</a></h2>
+</div>
+<div class="section" id="module-mediator.utils.context">
+<span id="mediator-utils-context-module"></span><h2>mediator.utils.context module<a class="headerlink" href="#module-mediator.utils.context" title="Permalink to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="mediator.utils.context.AsyncNullContextManager">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.utils.context.</span></span><span class="sig-name descname"><span class="pre">AsyncNullContextManager</span></span><a class="reference internal" href="_modules/mediator/utils/context.html#AsyncNullContextManager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.utils.context.AsyncNullContextManager" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code>]</p>
+<p>Asyncio null context manager - zero functionality context manager.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.utils.context.AsyncNullContextManager.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/utils/context.html#AsyncNullContextManager.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.utils.context.AsyncNullContextManager.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Initializes asyncio null context manager.
+:param return_value: optional value returned in <cite>when</cite> statement</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>return_value</strong> (<em>Optional</em><em>[</em><em>T</em><em>]</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-mediator.utils.inspection">
+<span id="mediator-utils-inspection-module"></span><h2>mediator.utils.inspection module<a class="headerlink" href="#module-mediator.utils.inspection" title="Permalink to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="mediator.utils.inspection.CallableArg">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.utils.inspection.</span></span><span class="sig-name descname"><span class="pre">CallableArg</span></span><a class="reference internal" href="_modules/mediator/utils/inspection.html#CallableArg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.utils.inspection.CallableArg" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Stores information about given callable argument.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.utils.inspection.CallableArg.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_positional</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mediator.utils.inspection.CallableArg.__init__" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – </p></li>
+<li><p><strong>type</strong> (<em>Optional</em><em>[</em><em>Any</em><em>]</em>) – </p></li>
+<li><p><strong>is_positional</strong> (<em>bool</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mediator.utils.inspection.CallableArg.is_positional">
+<span class="sig-name descname"><span class="pre">is_positional</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#mediator.utils.inspection.CallableArg.is_positional" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mediator.utils.inspection.CallableArg.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#mediator.utils.inspection.CallableArg.name" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mediator.utils.inspection.CallableArg.type">
+<span class="sig-name descname"><span class="pre">type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#mediator.utils.inspection.CallableArg.type" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mediator.utils.inspection.CallableDetails">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.utils.inspection.</span></span><span class="sig-name descname"><span class="pre">CallableDetails</span></span><a class="reference internal" href="_modules/mediator/utils/inspection.html#CallableDetails"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.utils.inspection.CallableDetails" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mediator.utils.inspection.CallableType" title="mediator.utils.inspection.CallableType"><code class="xref py py-class docutils literal notranslate"><span class="pre">CallableType</span></code></a>, <a class="reference internal" href="#mediator.utils.inspection.CallableIODetails" title="mediator.utils.inspection.CallableIODetails"><code class="xref py py-class docutils literal notranslate"><span class="pre">CallableIODetails</span></code></a></p>
+<p>Stores all inspection data about callable.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.utils.inspection.CallableDetails.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">has_kwargs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_routine</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_async</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mediator.utils.inspection.CallableDetails.__init__" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> (<em>List</em><em>[</em><a class="reference internal" href="#mediator.utils.inspection.CallableArg" title="mediator.utils.inspection.CallableArg"><em>CallableArg</em></a><em>]</em>) – </p></li>
+<li><p><strong>has_kwargs</strong> (<em>bool</em>) – </p></li>
+<li><p><strong>return_type</strong> (<em>Optional</em><em>[</em><em>Any</em><em>]</em>) – </p></li>
+<li><p><strong>is_routine</strong> (<em>bool</em>) – </p></li>
+<li><p><strong>is_method</strong> (<em>bool</em>) – </p></li>
+<li><p><strong>is_async</strong> (<em>bool</em>) – </p></li>
+<li><p><strong>obj</strong> (<em>Any</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mediator.utils.inspection.CallableDetails.obj">
+<span class="sig-name descname"><span class="pre">obj</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Any</span></em><a class="headerlink" href="#mediator.utils.inspection.CallableDetails.obj" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mediator.utils.inspection.CallableIODetails">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.utils.inspection.</span></span><span class="sig-name descname"><span class="pre">CallableIODetails</span></span><a class="reference internal" href="_modules/mediator/utils/inspection.html#CallableIODetails"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.utils.inspection.CallableIODetails" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Stores all information about input arguments and output data type.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.utils.inspection.CallableIODetails.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">has_kwargs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mediator.utils.inspection.CallableIODetails.__init__" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> (<em>List</em><em>[</em><a class="reference internal" href="#mediator.utils.inspection.CallableArg" title="mediator.utils.inspection.CallableArg"><em>CallableArg</em></a><em>]</em>) – </p></li>
+<li><p><strong>has_kwargs</strong> (<em>bool</em>) – </p></li>
+<li><p><strong>return_type</strong> (<em>Optional</em><em>[</em><em>Any</em><em>]</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.utils.inspection.CallableIODetails.arg_by_name">
+<span class="sig-name descname"><span class="pre">arg_by_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/utils/inspection.html#CallableIODetails.arg_by_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.utils.inspection.CallableIODetails.arg_by_name" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns callable argument details with matching name,
+or None when there is no match.
+:param name: argument name
+:return: callable argument details or None when not found</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> (<em>str</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><em>Optional</em>[<a class="reference internal" href="#mediator.utils.inspection.CallableArg" title="mediator.utils.inspection.CallableArg"><em>CallableArg</em></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mediator.utils.inspection.CallableIODetails.args">
+<span class="sig-name descname"><span class="pre">args</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#mediator.utils.inspection.CallableArg" title="mediator.utils.inspection.CallableArg"><span class="pre">CallableArg</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#mediator.utils.inspection.CallableIODetails.args" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mediator.utils.inspection.CallableIODetails.has_kwargs">
+<span class="sig-name descname"><span class="pre">has_kwargs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#mediator.utils.inspection.CallableIODetails.has_kwargs" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mediator.utils.inspection.CallableIODetails.return_type">
+<span class="sig-name descname"><span class="pre">return_type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#mediator.utils.inspection.CallableIODetails.return_type" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mediator.utils.inspection.CallableInspector">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.utils.inspection.</span></span><span class="sig-name descname"><span class="pre">CallableInspector</span></span><a class="reference internal" href="_modules/mediator/utils/inspection.html#CallableInspector"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.utils.inspection.CallableInspector" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Raw callable object inspector. Provides raw callable details is structured form.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.utils.inspection.CallableInspector.callable_type">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">callable_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/utils/inspection.html#CallableInspector.callable_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.utils.inspection.CallableInspector.callable_type" title="Permalink to this definition">#</a></dt>
+<dd><p>Inspects and provides given callable type information.
+:param fn: raw callable to inspect
+:return: callable type structured information</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>fn</strong> (<em>Any</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#mediator.utils.inspection.CallableType" title="mediator.utils.inspection.CallableType"><em>CallableType</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.utils.inspection.CallableInspector.inspect">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">inspect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/utils/inspection.html#CallableInspector.inspect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.utils.inspection.CallableInspector.inspect" title="Permalink to this definition">#</a></dt>
+<dd><p>Inspects given callable object.
+:param fn: raw callable object to inspect
+:return: callable structured details</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>fn</strong> (<em>Any</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#mediator.utils.inspection.CallableDetails" title="mediator.utils.inspection.CallableDetails"><em>CallableDetails</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.utils.inspection.CallableInspector.io_details">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">io_details</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/utils/inspection.html#CallableInspector.io_details"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.utils.inspection.CallableInspector.io_details" title="Permalink to this definition">#</a></dt>
+<dd><p>Inspects and provides given callable input and output details.
+:param fn: raw callable to inspect
+:return: callable input and output structured details</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>fn</strong> (<em>Any</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#mediator.utils.inspection.CallableIODetails" title="mediator.utils.inspection.CallableIODetails"><em>CallableIODetails</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mediator.utils.inspection.CallableType">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.utils.inspection.</span></span><span class="sig-name descname"><span class="pre">CallableType</span></span><a class="reference internal" href="_modules/mediator/utils/inspection.html#CallableType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.utils.inspection.CallableType" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Stores information about callable type.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.utils.inspection.CallableType.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">is_routine</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_async</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mediator.utils.inspection.CallableType.__init__" title="Permalink to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>is_routine</strong> (<em>bool</em>) – </p></li>
+<li><p><strong>is_method</strong> (<em>bool</em>) – </p></li>
+<li><p><strong>is_async</strong> (<em>bool</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mediator.utils.inspection.CallableType.is_async">
+<span class="sig-name descname"><span class="pre">is_async</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#mediator.utils.inspection.CallableType.is_async" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mediator.utils.inspection.CallableType.is_method">
+<span class="sig-name descname"><span class="pre">is_method</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#mediator.utils.inspection.CallableType.is_method" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mediator.utils.inspection.CallableType.is_routine">
+<span class="sig-name descname"><span class="pre">is_routine</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#mediator.utils.inspection.CallableType.is_routine" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-mediator.utils">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-mediator.utils" title="Permalink to this heading">#</a></h2>
+</div>
+</div>
+
+
+            </article>
+            
+            
+            
+            <footer class="bd-footer-article">
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+            
+          </div>
+          
+          
+          
+            <div class="bd-sidebar-secondary bd-toc">
+              
+<div class="toc-item">
+  
+<div class="tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#subpackages">
+   Subpackages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#submodules">
+   Submodules
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-mediator.utils.context">
+   mediator.utils.context module
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.utils.context.AsyncNullContextManager">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       AsyncNullContextManager
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.utils.context.AsyncNullContextManager.__init__">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         AsyncNullContextManager.__init__()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-mediator.utils.inspection">
+   mediator.utils.inspection module
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.utils.inspection.CallableArg">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       CallableArg
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.utils.inspection.CallableArg.__init__">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         CallableArg.__init__()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.utils.inspection.CallableArg.is_positional">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         CallableArg.is_positional
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.utils.inspection.CallableArg.name">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         CallableArg.name
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.utils.inspection.CallableArg.type">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         CallableArg.type
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.utils.inspection.CallableDetails">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       CallableDetails
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.utils.inspection.CallableDetails.__init__">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         CallableDetails.__init__()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.utils.inspection.CallableDetails.obj">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         CallableDetails.obj
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.utils.inspection.CallableIODetails">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       CallableIODetails
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.utils.inspection.CallableIODetails.__init__">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         CallableIODetails.__init__()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.utils.inspection.CallableIODetails.arg_by_name">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         CallableIODetails.arg_by_name()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.utils.inspection.CallableIODetails.args">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         CallableIODetails.args
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.utils.inspection.CallableIODetails.has_kwargs">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         CallableIODetails.has_kwargs
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.utils.inspection.CallableIODetails.return_type">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         CallableIODetails.return_type
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.utils.inspection.CallableInspector">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       CallableInspector
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.utils.inspection.CallableInspector.callable_type">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         CallableInspector.callable_type()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.utils.inspection.CallableInspector.inspect">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         CallableInspector.inspect()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.utils.inspection.CallableInspector.io_details">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         CallableInspector.io_details()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.utils.inspection.CallableType">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       CallableType
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.utils.inspection.CallableType.__init__">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         CallableType.__init__()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.utils.inspection.CallableType.is_async">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         CallableType.is_async
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.utils.inspection.CallableType.is_method">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         CallableType.is_method
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.utils.inspection.CallableType.is_routine">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         CallableType.is_routine
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-mediator.utils">
+   Module contents
+  </a>
+ </li>
+</ul>
+
+</nav>
+</div>
+
+<div class="toc-item">
+  
+<div id="searchbox"></div>
+</div>
+
+<div class="toc-item">
+  
+</div>
+
+<div class="toc-item">
+  
+<div class="tocsection sourcelink">
+    <a href="_sources/mediator.utils.rst.txt">
+        <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+</div>
+
+</div>
+
+            </div>
+          
+          
+        </div>
+        <footer class="bd-footer-content">
+          <div class="bd-footer-content__inner">
+            
+          </div>
+        </footer>
+        
+      </main>
+    </div>
+  </div>
+
+  
+    
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94"></script>
+
+  <footer class="bd-footer"><div class="bd-footer__inner container">
+  
+  <div class="footer-item">
+    
+<p class="copyright">
+
+    &copy; Copyright 2022, other.<br>
+
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="theme-version">
+    Built with the
+    <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">
+        PyData Sphinx Theme
+    </a>
+    0.12.0.
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+<p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.3.0.<br>
+</p>
+
+  </div>
+  
+</div>
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1332 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mediator.event package &#8212; mediator 0.7.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="_static/styles/bootstrap.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94">
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'mediator.event';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="docsearch:language" content="en">
+  </head>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
+  <label class="overlay overlay-primary" for="__primary"></label>
+
+  
+  <input type="checkbox" class="sidebar-toggle" name="__secondary" id="__secondary">
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+      
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+    </div>
+  </div>
+
+  
+  <nav class="bd-header navbar navbar-expand-lg bd-navbar" id="navbar-main"><div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+      <span class="fa-solid fa-bars"></span>
+  </label>
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="index.html">
+
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+    <p class="title logo__title">mediator 0.7.0 documentation</p>
+  
+</a>
+    
+  </div>
+
+  
+  <div class="col-lg-9 navbar-header-items">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+    </ul>
+</nav>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+        <div class="navbar-end-item navbar-persistent--container">
+          
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+        </div>
+      
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+
+
+  
+  
+    <div class="navbar-persistent--mobile">
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+    </div>
+  
+
+  
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+  </label>
+  
+
+</div>
+  </nav>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+      
+      <div class="navbar-center-item">
+        <nav class="navbar-nav">
+    <p class="sidebar-header-items__title" role="heading" aria-level="1" aria-label="Site Navigation">
+        Site Navigation
+    </p>
+    <ul id="navbar-main-elements" class="navbar-nav">
+        
+    </ul>
+</nav>
+      </div>
+      
+      </div>
+    
+
+    
+    
+    <div class="sidebar-header-items__end">
+      
+      <div class="navbar-end-item">
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+    
+  </div>
+
+  
+  <div class="sidebar-start-items sidebar-primary__section">
+    <div class="sidebar-start-items__item"><nav class="bd-links" id="bd-docs-nav" aria-label="Section navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">
+    Section Navigation
+  </p>
+  <div class="bd-toc-item navbar-nav">
+    <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="mediator.common.html">mediator.common package</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="mediator.common.factory.html">mediator.common.factory package</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="mediator.common.factory.test.html">mediator.common.factory.test package</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="mediator.common.handler.html">mediator.common.handler package</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="mediator.common.handler.test.html">mediator.common.handler.test package</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="mediator.common.registry.html">mediator.common.registry package</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="mediator.common.registry.test.html">mediator.common.registry.test package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mediator.common.test.html">mediator.common.test package</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">mediator.event package</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="mediator.event.test.html">mediator.event.test package</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="mediator.request.html">mediator.request package</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="mediator.request.test.html">mediator.request.test package</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="mediator.utils.html">mediator.utils package</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="mediator.utils.test.html">mediator.utils.test package</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+</nav>
+    </div>
+  </div>
+  
+
+  
+  <div class="sidebar-end-items sidebar-primary__section">
+    <div class="sidebar-end-items__item">
+    </div>
+  </div>
+
+  
+  <div id="rtd-footer-container"></div>
+
+      </div>
+      <main id="main-content" class="bd-main">
+        
+        
+        <div class="bd-content">
+          <div class="bd-article-container">
+            
+            <div class="bd-header-article">
+                
+            </div>
+            
+            
+            <article class="bd-article" role="main">
+              
+  <div class="section" id="mediator-event-package">
+<h1>mediator.event package<a class="headerlink" href="#mediator-event-package" title="Permalink to this heading">#</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mediator.event.test.html">mediator.event.test package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mediator.event.test.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mediator.event.test.html#module-mediator.event.test.test_aggregate">mediator.event.test.test_aggregate module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mediator.event.test.html#mediator.event.test.test_aggregate.test_event_aggregate"><code class="docutils literal notranslate"><span class="pre">test_event_aggregate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mediator.event.test.html#mediator.event.test.test_aggregate.test_event_aggregate_transaction"><code class="docutils literal notranslate"><span class="pre">test_event_aggregate_transaction()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mediator.event.test.html#module-mediator.event.test.test_local">mediator.event.test.test_local module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mediator.event.test.html#mediator.event.test.test_local.test_local_event_bus"><code class="docutils literal notranslate"><span class="pre">test_local_event_bus()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="mediator.event.test.html#mediator.event.test.test_local.test_local_event_bus_sync"><code class="docutils literal notranslate"><span class="pre">test_local_event_bus_sync()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mediator.event.test.html#module-mediator.event.test">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">#</a></h2>
+</div>
+<div class="section" id="module-mediator.event.aggregate">
+<span id="mediator-event-aggregate-module"></span><h2>mediator.event.aggregate module<a class="headerlink" href="#module-mediator.event.aggregate" title="Permalink to this heading">#</a></h2>
+<dl class="py exception">
+<dt class="sig sig-object py" id="mediator.event.aggregate.ConfigEventAggregateError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.event.aggregate.</span></span><span class="sig-name descname"><span class="pre">ConfigEventAggregateError</span></span><a class="reference internal" href="_modules/mediator/event/aggregate.html#ConfigEventAggregateError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.event.aggregate.ConfigEventAggregateError" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AssertionError</span></code>, <a class="reference internal" href="#mediator.event.aggregate.EventAggregateError" title="mediator.event.aggregate.EventAggregateError"><code class="xref py py-class docutils literal notranslate"><span class="pre">EventAggregateError</span></code></a></p>
+<p>Config event aggregate error.</p>
+<p>Raised when event aggregate object is not properly configured.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mediator.event.aggregate.EventAggregate">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.event.aggregate.</span></span><span class="sig-name descname"><span class="pre">EventAggregate</span></span><a class="reference internal" href="_modules/mediator/event/aggregate.html#EventAggregate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.event.aggregate.EventAggregate" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Event aggregate object.</p>
+<p>Used for staging events and publishing them in one transaction.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.event.aggregate.EventAggregate.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/event/aggregate.html#EventAggregate.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.event.aggregate.EventAggregate.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Initializes empty event aggregate.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.event.aggregate.EventAggregate.cleanup">
+<span class="sig-name descname"><span class="pre">cleanup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/event/aggregate.html#EventAggregate.cleanup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.event.aggregate.EventAggregate.cleanup" title="Permalink to this definition">#</a></dt>
+<dd><p>Clears all staged events.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.event.aggregate.EventAggregate.commit">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">commit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/event/aggregate.html#EventAggregate.commit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.event.aggregate.EventAggregate.commit" title="Permalink to this definition">#</a></dt>
+<dd><p>Commits staged events by underlying publisher.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.event.aggregate.EventAggregate.enqueue">
+<span class="sig-name descname"><span class="pre">enqueue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/event/aggregate.html#EventAggregate.enqueue"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.event.aggregate.EventAggregate.enqueue" title="Permalink to this definition">#</a></dt>
+<dd><p>Stages given event object with optional extra arguments.
+:param obj: event object
+:param kwargs: optional extra arguments</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>obj</strong> (<em>Any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.event.aggregate.EventAggregate.use">
+<span class="sig-name descname"><span class="pre">use</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">publisher</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/event/aggregate.html#EventAggregate.use"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.event.aggregate.EventAggregate.use" title="Permalink to this definition">#</a></dt>
+<dd><p>Sets event publisher used for event sending.
+:param publisher: event publisher to use
+:return: self</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>publisher</strong> (<a class="reference internal" href="#mediator.event.base.EventPublisher" title="mediator.event.base.EventPublisher"><em>EventPublisher</em></a>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="mediator.event.aggregate.EventAggregateError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.event.aggregate.</span></span><span class="sig-name descname"><span class="pre">EventAggregateError</span></span><a class="reference internal" href="_modules/mediator/event/aggregate.html#EventAggregateError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.event.aggregate.EventAggregateError" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Event aggregate base error</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-mediator.event.base">
+<span id="mediator-event-base-module"></span><h2>mediator.event.base module<a class="headerlink" href="#module-mediator.event.base" title="Permalink to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="mediator.event.base.EventPublish">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.event.base.</span></span><span class="sig-name descname"><span class="pre">EventPublish</span></span><a class="reference internal" href="_modules/mediator/event/base.html#EventPublish"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.event.base.EventPublish" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Event publishing interface.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.event.base.EventPublish.publish">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">publish</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/event/base.html#EventPublish.publish"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.event.base.EventPublish.publish" title="Permalink to this definition">#</a></dt>
+<dd><p>Publishes given event object.
+:param obj: event object to be published
+:param kwargs: extra event arguments</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>obj</strong> (<em>Any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mediator.event.base.EventPublisher">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.event.base.</span></span><span class="sig-name descname"><span class="pre">EventPublisher</span></span><a class="reference internal" href="_modules/mediator/event/base.html#EventPublisher"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.event.base.EventPublisher" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mediator.event.base.EventPublish" title="mediator.event.base.EventPublish"><code class="xref py py-class docutils literal notranslate"><span class="pre">EventPublish</span></code></a></p>
+<p>Event publisher interface, supporting transactions.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.event.base.EventPublisher.publish">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">publish</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/event/base.html#EventPublisher.publish"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.event.base.EventPublisher.publish" title="Permalink to this definition">#</a></dt>
+<dd><p>Publishes given event object.
+:param obj: event object to be published
+:param kwargs: extra event arguments</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>obj</strong> (<em>Any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.event.base.EventPublisher.transaction">
+<span class="sig-name descname"><span class="pre">transaction</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/event/base.html#EventPublisher.transaction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.event.base.EventPublisher.transaction" title="Permalink to this definition">#</a></dt>
+<dd><p>Provides transaction context manager returning event publish interface,
+to publish events inside of transaction.
+:return: async context manager returning event publish interface</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><em>AbstractAsyncContextManager</em>[<a class="reference internal" href="#mediator.event.base.EventPublish" title="mediator.event.base.EventPublish"><em>EventPublish</em></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mediator.event.base.EventSubscriber">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.event.base.</span></span><span class="sig-name descname"><span class="pre">EventSubscriber</span></span><a class="reference internal" href="_modules/mediator/event/base.html#EventSubscriber"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.event.base.EventSubscriber" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="mediator.common.registry.html#mediator.common.registry.base.HandlerStore" title="mediator.common.registry.base.HandlerStore"><code class="xref py py-class docutils literal notranslate"><span class="pre">HandlerStore</span></code></a></p>
+<p>Event subscriber</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.event.base.EventSubscriber.add">
+<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/event/base.html#EventSubscriber.add"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.event.base.EventSubscriber.add" title="Permalink to this definition">#</a></dt>
+<dd><p>Connects handler entry to process events.
+:param entry: handler entry to connect</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>entry</strong> (<a class="reference internal" href="mediator.common.registry.html#mediator.common.registry.base.HandlerEntry" title="mediator.common.registry.base.HandlerEntry"><em>HandlerEntry</em></a>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.event.base.EventSubscriber.include">
+<span class="sig-name descname"><span class="pre">include</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entries</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/event/base.html#EventSubscriber.include"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.event.base.EventSubscriber.include" title="Permalink to this definition">#</a></dt>
+<dd><p>Connects all handler entries from given iterable to process events.
+:param entries: handler entries iterator</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>entries</strong> (<em>Iterable</em><em>[</em><a class="reference internal" href="mediator.common.registry.html#mediator.common.registry.base.HandlerEntry" title="mediator.common.registry.base.HandlerEntry"><em>HandlerEntry</em></a><em>]</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-mediator.event.local">
+<span id="mediator-event-local-module"></span><h2>mediator.event.local module<a class="headerlink" href="#module-mediator.event.local" title="Permalink to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="mediator.event.local.LocalEventBus">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.event.local.</span></span><span class="sig-name descname"><span class="pre">LocalEventBus</span></span><a class="reference internal" href="_modules/mediator/event/local.html#LocalEventBus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.event.local.LocalEventBus" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mediator.event.base.EventPublisher" title="mediator.event.base.EventPublisher"><code class="xref py py-class docutils literal notranslate"><span class="pre">EventPublisher</span></code></a>, <a class="reference internal" href="mediator.common.registry.html#mediator.common.registry.registry.HandlerRegistry" title="mediator.common.registry.registry.HandlerRegistry"><code class="xref py py-class docutils literal notranslate"><span class="pre">HandlerRegistry</span></code></a>, <a class="reference internal" href="#mediator.event.base.EventSubscriber" title="mediator.event.base.EventSubscriber"><code class="xref py py-class docutils literal notranslate"><span class="pre">EventSubscriber</span></code></a></p>
+<p>Local event bus.</p>
+<p>Performs event execution scheduling locally in-place as asyncio backgrount tasks.
+Connects behaviours of handler registry and event publisher interface.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.event.local.LocalEventBus.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">policies</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cascade</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modifiers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sync_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/event/local.html#LocalEventBus.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.event.local.LocalEventBus.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Initializes local event bus with given specification.
+:param policies:
+(optional) sequence of policies to be used as recipe
+to convert raw objects into handlers;
+if not provided default <cite>CallableHandlerPolicy</cite> will be used;
+overwritten when cascade is provided
+:param cascade:
+(optional) custom handler factory cascade to customize
+policy into handler factory mapping
+:param modifiers: sequence of modifiers to be applied on new handler entries</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>policies</strong> (<em>Optional</em><em>[</em><em>Sequence</em><em>[</em><em>Union</em><em>[</em><a class="reference internal" href="mediator.common.factory.html#mediator.common.factory.policies.CallableHandlerPolicy" title="mediator.common.factory.policies.CallableHandlerPolicy"><em>CallableHandlerPolicy</em></a><em>, </em><a class="reference internal" href="mediator.common.factory.html#mediator.common.factory.policies.MethodHandlerPolicy" title="mediator.common.factory.policies.MethodHandlerPolicy"><em>MethodHandlerPolicy</em></a><em>, </em><a class="reference internal" href="mediator.common.factory.html#mediator.common.factory.policies.MappablePolicy" title="mediator.common.factory.policies.MappablePolicy"><em>MappablePolicy</em></a><em>]</em><em>]</em><em>]</em>) – </p></li>
+<li><p><strong>cascade</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="mediator.common.factory.html#mediator.common.factory.cascade.HandlerFactoryCascade" title="mediator.common.factory.cascade.HandlerFactoryCascade"><em>HandlerFactoryCascade</em></a><em>]</em>) – </p></li>
+<li><p><strong>modifiers</strong> (<em>Sequence</em><em>[</em><a class="reference internal" href="mediator.common.html#mediator.common.modifiers.ModifierFactory" title="mediator.common.modifiers.ModifierFactory"><em>ModifierFactory</em></a><em>]</em>) – </p></li>
+<li><p><strong>sync_mode</strong> (<em>bool</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.event.local.LocalEventBus.publish">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">publish</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/event/local.html#LocalEventBus.publish"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.event.local.LocalEventBus.publish" title="Permalink to this definition">#</a></dt>
+<dd><p>Publishes given event.
+:param obj: event object
+:param kwargs: event extra arguments</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>obj</strong> (<em>Any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-mediator.event.registry">
+<span id="mediator-event-registry-module"></span><h2>mediator.event.registry module<a class="headerlink" href="#module-mediator.event.registry" title="Permalink to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="mediator.event.registry.EventHandlerRegistry">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.event.registry.</span></span><span class="sig-name descname"><span class="pre">EventHandlerRegistry</span></span><a class="reference internal" href="_modules/mediator/event/registry.html#EventHandlerRegistry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.event.registry.EventHandlerRegistry" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="mediator.common.registry.html#mediator.common.registry.registry.HandlerRegistry" title="mediator.common.registry.registry.HandlerRegistry"><code class="xref py py-class docutils literal notranslate"><span class="pre">HandlerRegistry</span></code></a></p>
+<p>Event handler registry class.</p>
+<p>Registry that registers (adds) and stores event handlers.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.event.registry.EventHandlerRegistry.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">policies</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cascade</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modifiers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/event/registry.html#EventHandlerRegistry.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.event.registry.EventHandlerRegistry.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Initializes event handler registry.
+:param policies:
+(optional) sequence of policies to be used as recipe
+to convert raw objects into handlers;
+if not provided default CallableHandlerPolicy is used;
+overwritten when cascade is provided
+:param cascade:
+(optional/advanced) custom handler factory cascade to customize
+policy into handler factory mapping
+:param modifiers: sequence of modifiers to be applied on new handler entries</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>policies</strong> (<em>Optional</em><em>[</em><em>Sequence</em><em>[</em><em>Union</em><em>[</em><a class="reference internal" href="mediator.common.factory.html#mediator.common.factory.policies.CallableHandlerPolicy" title="mediator.common.factory.policies.CallableHandlerPolicy"><em>CallableHandlerPolicy</em></a><em>, </em><a class="reference internal" href="mediator.common.factory.html#mediator.common.factory.policies.MethodHandlerPolicy" title="mediator.common.factory.policies.MethodHandlerPolicy"><em>MethodHandlerPolicy</em></a><em>, </em><a class="reference internal" href="mediator.common.factory.html#mediator.common.factory.policies.MappablePolicy" title="mediator.common.factory.policies.MappablePolicy"><em>MappablePolicy</em></a><em>]</em><em>]</em><em>]</em>) – </p></li>
+<li><p><strong>cascade</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="mediator.common.factory.html#mediator.common.factory.cascade.HandlerFactoryCascade" title="mediator.common.factory.cascade.HandlerFactoryCascade"><em>HandlerFactoryCascade</em></a><em>]</em>) – </p></li>
+<li><p><strong>modifiers</strong> (<em>Sequence</em><em>[</em><a class="reference internal" href="mediator.common.html#mediator.common.modifiers.ModifierFactory" title="mediator.common.modifiers.ModifierFactory"><em>ModifierFactory</em></a><em>]</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-mediator.event">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-mediator.event" title="Permalink to this heading">#</a></h2>
+<dl class="py exception">
+<dt class="sig sig-object py" id="mediator.event.ConfigEventAggregateError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.event.</span></span><span class="sig-name descname"><span class="pre">ConfigEventAggregateError</span></span><a class="reference internal" href="_modules/mediator/event/aggregate.html#ConfigEventAggregateError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.event.ConfigEventAggregateError" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AssertionError</span></code>, <a class="reference internal" href="#mediator.event.aggregate.EventAggregateError" title="mediator.event.aggregate.EventAggregateError"><code class="xref py py-class docutils literal notranslate"><span class="pre">EventAggregateError</span></code></a></p>
+<p>Config event aggregate error.</p>
+<p>Raised when event aggregate object is not properly configured.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mediator.event.EventAggregate">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.event.</span></span><span class="sig-name descname"><span class="pre">EventAggregate</span></span><a class="reference internal" href="_modules/mediator/event/aggregate.html#EventAggregate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.event.EventAggregate" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Event aggregate object.</p>
+<p>Used for staging events and publishing them in one transaction.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.event.EventAggregate.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/event/aggregate.html#EventAggregate.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.event.EventAggregate.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Initializes empty event aggregate.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.event.EventAggregate.cleanup">
+<span class="sig-name descname"><span class="pre">cleanup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/event/aggregate.html#EventAggregate.cleanup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.event.EventAggregate.cleanup" title="Permalink to this definition">#</a></dt>
+<dd><p>Clears all staged events.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.event.EventAggregate.commit">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">commit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/event/aggregate.html#EventAggregate.commit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.event.EventAggregate.commit" title="Permalink to this definition">#</a></dt>
+<dd><p>Commits staged events by underlying publisher.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.event.EventAggregate.enqueue">
+<span class="sig-name descname"><span class="pre">enqueue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/event/aggregate.html#EventAggregate.enqueue"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.event.EventAggregate.enqueue" title="Permalink to this definition">#</a></dt>
+<dd><p>Stages given event object with optional extra arguments.
+:param obj: event object
+:param kwargs: optional extra arguments</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>obj</strong> (<em>Any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.event.EventAggregate.use">
+<span class="sig-name descname"><span class="pre">use</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">publisher</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/event/aggregate.html#EventAggregate.use"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.event.EventAggregate.use" title="Permalink to this definition">#</a></dt>
+<dd><p>Sets event publisher used for event sending.
+:param publisher: event publisher to use
+:return: self</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>publisher</strong> (<a class="reference internal" href="#mediator.event.base.EventPublisher" title="mediator.event.base.EventPublisher"><em>EventPublisher</em></a>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="mediator.event.EventAggregateError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.event.</span></span><span class="sig-name descname"><span class="pre">EventAggregateError</span></span><a class="reference internal" href="_modules/mediator/event/aggregate.html#EventAggregateError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.event.EventAggregateError" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Event aggregate base error</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mediator.event.EventHandlerRegistry">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.event.</span></span><span class="sig-name descname"><span class="pre">EventHandlerRegistry</span></span><a class="reference internal" href="_modules/mediator/event/registry.html#EventHandlerRegistry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.event.EventHandlerRegistry" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="mediator.common.registry.html#mediator.common.registry.registry.HandlerRegistry" title="mediator.common.registry.registry.HandlerRegistry"><code class="xref py py-class docutils literal notranslate"><span class="pre">HandlerRegistry</span></code></a></p>
+<p>Event handler registry class.</p>
+<p>Registry that registers (adds) and stores event handlers.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.event.EventHandlerRegistry.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">policies</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cascade</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modifiers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/event/registry.html#EventHandlerRegistry.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.event.EventHandlerRegistry.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Initializes event handler registry.
+:param policies:
+(optional) sequence of policies to be used as recipe
+to convert raw objects into handlers;
+if not provided default CallableHandlerPolicy is used;
+overwritten when cascade is provided
+:param cascade:
+(optional/advanced) custom handler factory cascade to customize
+policy into handler factory mapping
+:param modifiers: sequence of modifiers to be applied on new handler entries</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>policies</strong> (<em>Optional</em><em>[</em><em>Sequence</em><em>[</em><em>Union</em><em>[</em><a class="reference internal" href="mediator.common.factory.html#mediator.common.factory.policies.CallableHandlerPolicy" title="mediator.common.factory.policies.CallableHandlerPolicy"><em>CallableHandlerPolicy</em></a><em>, </em><a class="reference internal" href="mediator.common.factory.html#mediator.common.factory.policies.MethodHandlerPolicy" title="mediator.common.factory.policies.MethodHandlerPolicy"><em>MethodHandlerPolicy</em></a><em>, </em><a class="reference internal" href="mediator.common.factory.html#mediator.common.factory.policies.MappablePolicy" title="mediator.common.factory.policies.MappablePolicy"><em>MappablePolicy</em></a><em>]</em><em>]</em><em>]</em>) – </p></li>
+<li><p><strong>cascade</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="mediator.common.factory.html#mediator.common.factory.cascade.HandlerFactoryCascade" title="mediator.common.factory.cascade.HandlerFactoryCascade"><em>HandlerFactoryCascade</em></a><em>]</em>) – </p></li>
+<li><p><strong>modifiers</strong> (<em>Sequence</em><em>[</em><a class="reference internal" href="mediator.common.html#mediator.common.modifiers.ModifierFactory" title="mediator.common.modifiers.ModifierFactory"><em>ModifierFactory</em></a><em>]</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mediator.event.EventPublish">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.event.</span></span><span class="sig-name descname"><span class="pre">EventPublish</span></span><a class="reference internal" href="_modules/mediator/event/base.html#EventPublish"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.event.EventPublish" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Event publishing interface.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.event.EventPublish.publish">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">publish</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/event/base.html#EventPublish.publish"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.event.EventPublish.publish" title="Permalink to this definition">#</a></dt>
+<dd><p>Publishes given event object.
+:param obj: event object to be published
+:param kwargs: extra event arguments</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>obj</strong> (<em>Any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mediator.event.EventPublisher">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.event.</span></span><span class="sig-name descname"><span class="pre">EventPublisher</span></span><a class="reference internal" href="_modules/mediator/event/base.html#EventPublisher"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.event.EventPublisher" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mediator.event.base.EventPublish" title="mediator.event.base.EventPublish"><code class="xref py py-class docutils literal notranslate"><span class="pre">EventPublish</span></code></a></p>
+<p>Event publisher interface, supporting transactions.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.event.EventPublisher.publish">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">publish</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/event/base.html#EventPublisher.publish"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.event.EventPublisher.publish" title="Permalink to this definition">#</a></dt>
+<dd><p>Publishes given event object.
+:param obj: event object to be published
+:param kwargs: extra event arguments</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>obj</strong> (<em>Any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.event.EventPublisher.transaction">
+<span class="sig-name descname"><span class="pre">transaction</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/event/base.html#EventPublisher.transaction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.event.EventPublisher.transaction" title="Permalink to this definition">#</a></dt>
+<dd><p>Provides transaction context manager returning event publish interface,
+to publish events inside of transaction.
+:return: async context manager returning event publish interface</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><em>AbstractAsyncContextManager</em>[<a class="reference internal" href="#mediator.event.base.EventPublish" title="mediator.event.base.EventPublish"><em>EventPublish</em></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mediator.event.EventSubscriber">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.event.</span></span><span class="sig-name descname"><span class="pre">EventSubscriber</span></span><a class="reference internal" href="_modules/mediator/event/base.html#EventSubscriber"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.event.EventSubscriber" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="mediator.common.registry.html#mediator.common.registry.base.HandlerStore" title="mediator.common.registry.base.HandlerStore"><code class="xref py py-class docutils literal notranslate"><span class="pre">HandlerStore</span></code></a></p>
+<p>Event subscriber</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.event.EventSubscriber.add">
+<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entry</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/event/base.html#EventSubscriber.add"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.event.EventSubscriber.add" title="Permalink to this definition">#</a></dt>
+<dd><p>Connects handler entry to process events.
+:param entry: handler entry to connect</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>entry</strong> (<a class="reference internal" href="mediator.common.registry.html#mediator.common.registry.base.HandlerEntry" title="mediator.common.registry.base.HandlerEntry"><em>HandlerEntry</em></a>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.event.EventSubscriber.include">
+<span class="sig-name descname"><span class="pre">include</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entries</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/event/base.html#EventSubscriber.include"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.event.EventSubscriber.include" title="Permalink to this definition">#</a></dt>
+<dd><p>Connects all handler entries from given iterable to process events.
+:param entries: handler entries iterator</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>entries</strong> (<em>Iterable</em><em>[</em><a class="reference internal" href="mediator.common.registry.html#mediator.common.registry.base.HandlerEntry" title="mediator.common.registry.base.HandlerEntry"><em>HandlerEntry</em></a><em>]</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mediator.event.LocalEventBus">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mediator.event.</span></span><span class="sig-name descname"><span class="pre">LocalEventBus</span></span><a class="reference internal" href="_modules/mediator/event/local.html#LocalEventBus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.event.LocalEventBus" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#mediator.event.base.EventPublisher" title="mediator.event.base.EventPublisher"><code class="xref py py-class docutils literal notranslate"><span class="pre">EventPublisher</span></code></a>, <a class="reference internal" href="mediator.common.registry.html#mediator.common.registry.registry.HandlerRegistry" title="mediator.common.registry.registry.HandlerRegistry"><code class="xref py py-class docutils literal notranslate"><span class="pre">HandlerRegistry</span></code></a>, <a class="reference internal" href="#mediator.event.base.EventSubscriber" title="mediator.event.base.EventSubscriber"><code class="xref py py-class docutils literal notranslate"><span class="pre">EventSubscriber</span></code></a></p>
+<p>Local event bus.</p>
+<p>Performs event execution scheduling locally in-place as asyncio backgrount tasks.
+Connects behaviours of handler registry and event publisher interface.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.event.LocalEventBus.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">policies</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cascade</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modifiers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sync_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/event/local.html#LocalEventBus.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.event.LocalEventBus.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Initializes local event bus with given specification.
+:param policies:
+(optional) sequence of policies to be used as recipe
+to convert raw objects into handlers;
+if not provided default <cite>CallableHandlerPolicy</cite> will be used;
+overwritten when cascade is provided
+:param cascade:
+(optional) custom handler factory cascade to customize
+policy into handler factory mapping
+:param modifiers: sequence of modifiers to be applied on new handler entries</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>policies</strong> (<em>Optional</em><em>[</em><em>Sequence</em><em>[</em><em>Union</em><em>[</em><a class="reference internal" href="mediator.common.factory.html#mediator.common.factory.policies.CallableHandlerPolicy" title="mediator.common.factory.policies.CallableHandlerPolicy"><em>CallableHandlerPolicy</em></a><em>, </em><a class="reference internal" href="mediator.common.factory.html#mediator.common.factory.policies.MethodHandlerPolicy" title="mediator.common.factory.policies.MethodHandlerPolicy"><em>MethodHandlerPolicy</em></a><em>, </em><a class="reference internal" href="mediator.common.factory.html#mediator.common.factory.policies.MappablePolicy" title="mediator.common.factory.policies.MappablePolicy"><em>MappablePolicy</em></a><em>]</em><em>]</em><em>]</em>) – </p></li>
+<li><p><strong>cascade</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="mediator.common.factory.html#mediator.common.factory.cascade.HandlerFactoryCascade" title="mediator.common.factory.cascade.HandlerFactoryCascade"><em>HandlerFactoryCascade</em></a><em>]</em>) – </p></li>
+<li><p><strong>modifiers</strong> (<em>Sequence</em><em>[</em><a class="reference internal" href="mediator.common.html#mediator.common.modifiers.ModifierFactory" title="mediator.common.modifiers.ModifierFactory"><em>ModifierFactory</em></a><em>]</em>) – </p></li>
+<li><p><strong>sync_mode</strong> (<em>bool</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mediator.event.LocalEventBus.publish">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">publish</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/mediator/event/local.html#LocalEventBus.publish"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mediator.event.LocalEventBus.publish" title="Permalink to this definition">#</a></dt>
+<dd><p>Publishes given event.
+:param obj: event object
+:param kwargs: event extra arguments</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>obj</strong> (<em>Any</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+            </article>
+            
+            
+            
+            <footer class="bd-footer-article">
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+            
+          </div>
+          
+          
+          
+            <div class="bd-sidebar-secondary bd-toc">
+              
+<div class="toc-item">
+  
+<div class="tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#subpackages">
+   Subpackages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#submodules">
+   Submodules
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-mediator.event.aggregate">
+   mediator.event.aggregate module
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.event.aggregate.ConfigEventAggregateError">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ConfigEventAggregateError
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.event.aggregate.EventAggregate">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       EventAggregate
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.event.aggregate.EventAggregate.__init__">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         EventAggregate.__init__()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.event.aggregate.EventAggregate.cleanup">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         EventAggregate.cleanup()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.event.aggregate.EventAggregate.commit">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         EventAggregate.commit()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.event.aggregate.EventAggregate.enqueue">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         EventAggregate.enqueue()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.event.aggregate.EventAggregate.use">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         EventAggregate.use()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.event.aggregate.EventAggregateError">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       EventAggregateError
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-mediator.event.base">
+   mediator.event.base module
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.event.base.EventPublish">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       EventPublish
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.event.base.EventPublish.publish">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         EventPublish.publish()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.event.base.EventPublisher">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       EventPublisher
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.event.base.EventPublisher.publish">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         EventPublisher.publish()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.event.base.EventPublisher.transaction">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         EventPublisher.transaction()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.event.base.EventSubscriber">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       EventSubscriber
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.event.base.EventSubscriber.add">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         EventSubscriber.add()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.event.base.EventSubscriber.include">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         EventSubscriber.include()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-mediator.event.local">
+   mediator.event.local module
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.event.local.LocalEventBus">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       LocalEventBus
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.event.local.LocalEventBus.__init__">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         LocalEventBus.__init__()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.event.local.LocalEventBus.publish">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         LocalEventBus.publish()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-mediator.event.registry">
+   mediator.event.registry module
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.event.registry.EventHandlerRegistry">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       EventHandlerRegistry
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.event.registry.EventHandlerRegistry.__init__">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         EventHandlerRegistry.__init__()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#module-mediator.event">
+   Module contents
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.event.ConfigEventAggregateError">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ConfigEventAggregateError
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.event.EventAggregate">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       EventAggregate
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.event.EventAggregate.__init__">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         EventAggregate.__init__()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.event.EventAggregate.cleanup">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         EventAggregate.cleanup()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.event.EventAggregate.commit">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         EventAggregate.commit()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.event.EventAggregate.enqueue">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         EventAggregate.enqueue()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.event.EventAggregate.use">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         EventAggregate.use()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.event.EventAggregateError">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       EventAggregateError
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.event.EventHandlerRegistry">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       EventHandlerRegistry
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.event.EventHandlerRegistry.__init__">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         EventHandlerRegistry.__init__()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.event.EventPublish">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       EventPublish
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.event.EventPublish.publish">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         EventPublish.publish()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.event.EventPublisher">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       EventPublisher
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.event.EventPublisher.publish">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         EventPublisher.publish()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.event.EventPublisher.transaction">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         EventPublisher.transaction()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.event.EventSubscriber">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       EventSubscriber
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.event.EventSubscriber.add">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         EventSubscriber.add()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.event.EventSubscriber.include">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         EventSubscriber.include()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mediator.event.LocalEventBus">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       LocalEventBus
+      </span>
+     </code>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.event.LocalEventBus.__init__">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         LocalEventBus.__init__()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#mediator.event.LocalEventBus.publish">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         LocalEventBus.publish()
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+</div>
+
+<div class="toc-item">
+  
+<div id="searchbox"></div>
+</div>
+
+<div class="toc-item">
+  
+</div>
+
+<div class="toc-item">
+  
+<div class="tocsection sourcelink">
+    <a href="_sources/mediator.event.rst.txt">
+        <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+</div>
+
+</div>
+
+            </div>
+          
+          
+        </div>
+        <footer class="bd-footer-content">
+          <div class="bd-footer-content__inner">
+            
+          </div>
+        </footer>
+        
+      </main>
+    </div>
+  </div>
+
+  
+    
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94"></script>
+
+  <footer class="bd-footer"><div class="bd-footer__inner container">
+  
+  <div class="footer-item">
+    
+<p class="copyright">
+
+    &copy; Copyright 2022, other.<br>
+
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="theme-version">
+    Built with the
+    <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">
+        PyData Sphinx Theme
+    </a>
+    0.12.0.
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+<p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.3.0.<br>
+</p>
+
+  </div>
+  
+</div>
+  </footer>
+  </body>
+</html>
